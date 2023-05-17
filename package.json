@@ -1,0 +1,25 @@
+{
+  "name": "@indra.ai/logdeva",
+  "version": "0.0.1",
+  "description": "The indra.ai deva for managing log files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indraai/LogDeva.git"
+  },
+  "keywords": [
+    "indra.ai",
+    "log",
+    "files",
+    "deva"
+  ],
+  "author": "Quinn Michaels",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indraai/LogDeva/issues"
+  },
+  "homepage": "https://github.com/indraai/LogDeva#readme"
+}
