@@ -129,7 +129,7 @@ const LOG = new Deva({
       delete packet.a.agent;
       delete packet.q;
 
-      this.client() = client;
+      packet.client = client;
       packet.agent = agent;
 
       this.func.log_write('answer', packet);
