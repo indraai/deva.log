@@ -1,0 +1,50 @@
+{
+  "name": "Log Deva Data File",
+  "describe": "The main Data file for Log Deva",
+  "copyright": "Copyright (c)2023 Quinn Michaels. All rights reserved.",
+  "data": {
+    "agent": {
+      "id": 2326475331713,
+      "key": "logdeva",
+      "prompt": {
+        "emoji": "🪵 ",
+        "text": "log",
+        "colors": {
+          "label": {
+            "R": 253,
+            "G": 255,
+            "B": 100
+          },
+          "text": {
+            "R": 253,
+            "G": 255,
+            "B": 100
+          }
+        }
+      },
+      "voice": {
+        "speech": "Alex",
+        "speed": 1
+      },
+      "profile": {
+        "name": "Log Deva",
+        "describe": "The Log file Deva",
+        "emoji": "/public/devas/log/emoji.png",
+        "avatar": "/public/devas/log/avatar.png",
+        "background": "/public/devas/log/background.png",
+        "gender": "M"
+      }
+    },
+    "vars": {
+      "messages": {
+        "init": "🟠 INIT",
+        "start": "🔵 START",
+        "enter": "🟢 ENTER",
+        "stop": "🔴 STOP",
+        "exit": "🟡 EXIT",
+        "done": "🟣 DONE",
+        "error": "💣 ERROR!"
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-# Log Deva
-
+## Log Deva
+p:Copyright (c)2023 Quinn Michaels
 
 p:This is the main help file for Log Deva. The Log file Deva
 
@@ -8,18 +8,13 @@ key: logdeva
 name: Log Deva
 describe: The Log file Deva
 
+### Methods
 
-
-## Methods
-
-`$ #logdeva uid`
+cmd:#logdeva uid
 p:Generate a unique id from the Log Deva.
 
-`$ #logdeva status`
+cmd:#logdeva status
 p:Return the status for the Log Deva.
 
-`$ #logdeva help`
+cmd:#logdeva help
 p:Get help using the Log Deva
-
-
-Copyright (c)2023 Quinn Michaels
