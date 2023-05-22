@@ -178,7 +178,7 @@ const LOG = new Deva({
 
       const theAgent = packet.agent.key;
 
-      const theDir = path.join(__dirname, '..', '..', 'logs', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`);
+      const theDir = path.join(__dirname, '..', '..', '..', 'logs', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`);
       const theFile = path.join(theDir, `${this.getToday()}.json`);
 
 
