@@ -44,7 +44,8 @@
         "exit": "🟡 EXIT",
         "done": "🟣 DONE",
         "error": "💣 ERROR!"
-      }
+      },
+      "relay": "clirelay"
     }
   }
 }

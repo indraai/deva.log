@@ -64,7 +64,7 @@ const LOG = new Deva({
     log_action(packet) {
       const isSelf = this.agent().id == packet.agent.id;
 
-      this.talk('cli', {
+      this.talk(this.vars.relay, {
         id: this.uid(),
         key: 'log',
         value: 'action',
@@ -85,7 +85,7 @@ const LOG = new Deva({
     log_state(packet) {
       const isSelf = this.agent().id == packet.agent.id;
 
-      this.talk('clirelay', {
+      this.talk(this.vars.relay, {
         id: this.uid(),
         key: 'log',
         value: 'state',
@@ -106,7 +106,7 @@ const LOG = new Deva({
     log_question(packet) {
 
       // talk event to notify the cli
-      this.talk('clirelay', {
+      this.talk(this.vars.relay, {
         id: this.uid(),
         key: 'log',
         value: 'question',
@@ -141,7 +141,7 @@ const LOG = new Deva({
     ***************/
     log_answer(packet) {
       // talk even tto notify the cli
-      this.talk('clirelay', {
+      this.talk(this.vars.relay, {
         id: this.uid(),
         key: 'log',
         value: 'answer',
