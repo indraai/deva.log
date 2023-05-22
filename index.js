@@ -57,6 +57,27 @@ const LOG = new Deva({
   deva: {},
   func: {
     /**************
+    func: log_error
+    params: packet
+    describe: log the error in the machine.
+    ***************/
+    log_error(packet) {
+      const isSelf = this.agent().id == packet.agent.id;
+
+      this.talk(this.vars.relay, {
+        id: this.uid(),
+        key: 'log',
+        value: 'error',
+        agent: this.agent(),
+        client: this.client(),
+        text: `🏃‍♂️ ${packet.agent.profile.name} action change to ${packet.value}`,
+        created: Date.now(),
+      });
+
+      this.func.log_write('error', packet);
+    },
+
+    /**************
     func: log_action
     params: packet
     describe: log the state changes in the machine.
@@ -68,8 +89,8 @@ const LOG = new Deva({
         id: this.uid(),
         key: 'log',
         value: 'action',
-        agent: this._agent,
-        client: packet.client,
+        agent: this.agent(),
+        client: this.client(),
         text: `🏃‍♂️ ${packet.agent.profile.name} action change to ${packet.value}`,
         created: Date.now(),
       });
@@ -89,8 +110,8 @@ const LOG = new Deva({
         id: this.uid(),
         key: 'log',
         value: 'state',
-        agent: this._agent,
-        client: packet.client,
+        agent: this.agent(),
+        client: this.client(),
         text: `🐒 ${packet.agent.profile.name} state change to ${packet.value}`,
         created: Date.now(),
       });
@@ -110,8 +131,8 @@ const LOG = new Deva({
         id: this.uid(),
         key: 'log',
         value: 'question',
-        agent: this._agent,
-        client: packet.q.client,
+        agent: this.agent(),
+        client: this.client(),
         text: `👤 ${this._agent.profile.name} logs a question from ${packet.q.client.profile.name}`,
         created: Date.now(),
       });
@@ -145,8 +166,8 @@ const LOG = new Deva({
         id: this.uid(),
         key: 'log',
         value: 'answer',
-        agent: this._agent,
-        client: packet.a.client,
+        agent: this.answer(),
+        client: this.client(),
         text: `🗣️  ${this._agent.profile.name} logs an answer from ${packet.a.agent.profile.name}`,
         created: Date.now(),
       });
@@ -164,7 +185,7 @@ const LOG = new Deva({
       delete packet.a.agent;
       delete packet.q;
 
-      packet.client = client;
+      this.client() = client;
       packet.agent = agent;
 
       this.func.log_write('answer', packet);
