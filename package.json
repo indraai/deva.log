@@ -22,5 +22,8 @@
   ],
   "bugs": {
     "url": "https://github.com/indraai/LogDeva/issues"
+  },
+  "dependencies": {
+    "@indra.ai/deva": "^1.1.40"
   }
 }

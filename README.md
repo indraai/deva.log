@@ -8,18 +8,29 @@ key: logdeva
 name: Log Deva
 describe: The Log file Deva
 
+## Listeners
+`> state`
+`> action`
+`> question`
+`> answer`
+
+## Functions
+Functions are local functionality specific to this deva that can be used in listeners and methods.
+
+`> this.func.log_action(packet)`
 
 
 ## Methods
+Methods are exposed as commands for the deva to use and other deva to call upon.
 
 `$ #logdeva uid`
-p:Generate a unique id from the Log Deva.
+Generate a unique id from the Log Deva.
 
 `$ #logdeva status`
-p:Return the status for the Log Deva.
+Return the status for the Log Deva.
 
 `$ #logdeva help`
-p:Get help using the Log Deva
+Get help using the Log Deva
 
 
 Copyright (c)2023 Quinn Michaels
