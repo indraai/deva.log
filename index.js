@@ -63,17 +63,6 @@ const LOG = new Deva({
     ***************/
     log_error(packet) {
       const isSelf = this.agent().id == packet.agent.id;
-
-      this.talk(this.vars.relay, {
-        id: this.uid(),
-        key: 'log',
-        value: 'error',
-        agent: this.agent(),
-        client: this.client(),
-        text: `🏃‍♂️ ${packet.agent.profile.name} action change to ${packet.value}`,
-        created: Date.now(),
-      });
-
       this.func.log_write('error', packet);
     },
 
@@ -84,17 +73,6 @@ const LOG = new Deva({
     ***************/
     log_action(packet) {
       const isSelf = this.agent().id == packet.agent.id;
-
-      this.talk(this.vars.relay, {
-        id: this.uid(),
-        key: 'log',
-        value: 'action',
-        agent: this.agent(),
-        client: this.client(),
-        text: `🏃‍♂️ ${packet.agent.profile.name} action change to ${packet.value}`,
-        created: Date.now(),
-      });
-
       this.func.log_write('action', packet);
     },
 
@@ -105,17 +83,6 @@ const LOG = new Deva({
     ***************/
     log_state(packet) {
       const isSelf = this.agent().id == packet.agent.id;
-
-      this.talk(this.vars.relay, {
-        id: this.uid(),
-        key: 'log',
-        value: 'state',
-        agent: this.agent(),
-        client: this.client(),
-        text: `🐒 ${packet.agent.profile.name} state change to ${packet.value}`,
-        created: Date.now(),
-      });
-
       this.func.log_write('state', packet);
     },
 
@@ -125,18 +92,6 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_question(packet) {
-
-      // talk event to notify the cli
-      this.talk(this.vars.relay, {
-        id: this.uid(),
-        key: 'log',
-        value: 'question',
-        agent: this.agent(),
-        client: this.client(),
-        text: `👤 ${this._agent.profile.name} logs a question from ${packet.q.client.profile.name}`,
-        created: Date.now(),
-      });
-
       const client = packet.q.client.id;
       const agent = {
         id: packet.q.agent.id,
@@ -161,17 +116,6 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_answer(packet) {
-      // talk even tto notify the cli
-      this.talk(this.vars.relay, {
-        id: this.uid(),
-        key: 'log',
-        value: 'answer',
-        agent: this.answer(),
-        client: this.client(),
-        text: `🗣️  ${this._agent.profile.name} logs an answer from ${packet.a.agent.profile.name}`,
-        created: Date.now(),
-      });
-
       const client = packet.a.client.id;
       const agent = {
         id: packet.a.agent.id,
@@ -189,7 +133,6 @@ const LOG = new Deva({
       packet.agent = agent;
 
       this.func.log_write('answer', packet);
-
     },
 
     log_write(type, packet) {
