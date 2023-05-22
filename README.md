@@ -1,36 +1,57 @@
 # Log Deva
 
+This is the README file for Log Deva, a component of the Deva system.
 
-p:This is the main help file for Log Deva. The Log file Deva
+Log Deva is a component of the Deva system designed to handle logging and event tracking. It provides functionalities for logging various events and actions within the Deva ecosystem. With Log Deva, you can easily track and monitor the activity and progress of your Deva agents. It offers listeners for state, action, question, answer, and error events, allowing you to capture and log important information. Log Deva also includes methods and functions for generating unique IDs, retrieving status information, and accessing help documentation. Choose Log Deva for efficient and comprehensive event logging in your Deva projects.
 
-uid: 5887246484190
-key: logdeva
-name: Log Deva
-describe: The Log file Deva
+## Overview
+Log Deva is designed to handle logging and event tracking within the Deva ecosystem. It provides functionalities for logging various events and actions that occur within the system.
 
-## Listeners
-`> state`
-`> action`
-`> question`
-`> answer`
+## Installation
+To install Log Deva, you can use npm:
 
-## Functions
-Functions are local functionality specific to this deva that can be used in listeners and methods.
+```
+npm install @indra.ai/logdeva
+```
 
-`> this.func.log_action(packet)`
+## Usage
+To use Log Deva, you can import it into your project:
 
+```javascript
+const LogDeva = require('@indra.ai/logdeva');
+```
 
-## Methods
-Methods are exposed as commands for the deva to use and other deva to call upon.
+### Variables
+- `relay`: The `relay` variable holds the event name for the relay to the CLI.
 
-`$ #logdeva uid`
-Generate a unique id from the Log Deva.
+### Listeners
+- `devacore:state`: The core listener for state events.
+- `devacore:action`: The core listener for action events.
+- `devacore:question`: The core listener for question events.
+- `devacore:answer`: The core listener for answer events.
+- `devacore:error`: The core listener for error events.
 
-`$ #logdeva status`
-Return the status for the Log Deva.
+### Functions
+Functions are local functionalities specific to Log Deva that can be used in listeners and methods.
 
-`$ #logdeva help`
-Get help using the Log Deva
+- `this.func.log_action(packet)`: Logs an action event.
+- `this.func.log_state(packet)`: Logs a state event.
+- `this.func.log_question(packet)`: Logs a question event.
+- `this.func.log_answer(packet)`: Logs an answer event.
+- `this.func.log_write(packet)`: Logs a write event.
 
+### Methods
+Methods are exposed as commands for Log Deva and other Deva components to use.
 
-Copyright (c)2023 Quinn Michaels
+- `$ #logdeva uid`: Generates a unique ID from Log Deva.
+- `$ #logdeva status`: Returns the status of Log Deva.
+- `$ #logdeva help`: Provides help for using Log Deva.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for choosing Log Deva for your logging and event tracking needs. If you have any further questions or need assistance, feel free to reach out.
+
+Copyright (c) 2023 Quinn Michaels
