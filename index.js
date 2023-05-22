@@ -1,6 +1,6 @@
 // Log Deva (c)2023 Quinn Michaels
 
-const package = require('../../package.json');
+const package = require('./package.json');
 const info = {
   name: package.name,
   version: package.version,
