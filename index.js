@@ -37,23 +37,7 @@ const LOG = new Deva({
     }
   },
   vars,
-  listeners: {
-    'devacore:state'(packet) {
-      return this.func.log_state(this.copy(packet));
-    },
-    'devacore:action'(packet) {
-      return this.func.log_action(this.copy(packet));
-    },
-    'devacore:question'(packet) {
-      return this.func.log_question(this.copy(packet));
-    },
-    'devacore:answer'(packet) {
-      return this.func.log_answer(this.copy(packet));
-    },
-    'devacore:error'(packet) {
-      return this.func.log_error(this.copy(packet));
-    },
-  },
+  listeners: {},
   modules: {},
   deva: {},
   func: {
@@ -217,5 +201,23 @@ const LOG = new Deva({
       });
     }
   },
+  onDone(data) {
+    this.listen('devacore:state', packet => {
+      return this.func.log_state(this.copy(packet));
+    });
+    this.listen('devacore:action', packet => {
+      return this.func.log_action(this.copy(packet));
+    });
+    this.listen('devacore:question', packet => {
+      return this.func.log_question(this.copy(packet));
+    });
+    this.listen('devacore:answer', packet => {
+      return this.func.log_answer(this.copy(packet));
+    });
+    this.listen('devacore:error', packet => {
+      return this.func.log_error(this.copy(packet));
+    });
+    return Promise.resolve(this._messages.states.done);
+  }
 });
 module.exports = LOG
