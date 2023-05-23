@@ -39,19 +39,19 @@ const LOG = new Deva({
   vars,
   listeners: {
     'devacore:state'(packet) {
-      return this.func.log_state(packet);
+      return this.func.log_state(this.copy(packet));
     },
     'devacore:action'(packet) {
-      return this.func.log_action(packet);
+      return this.func.log_action(this.copy(packet));
     },
     'devacore:question'(packet) {
-      return this.func.log_question(packet);
+      return this.func.log_question(this.copy(packet));
     },
     'devacore:answer'(packet) {
-      return this.func.log_answer(packet);
+      return this.func.log_answer(this.copy(packet));
     },
     'devacore:error'(packet) {
-      return this.func.log_error(packet);
+      return this.func.log_error(this.copy(packet));
     },
   },
   modules: {},
@@ -195,7 +195,7 @@ const LOG = new Deva({
     describe: Return the current status of the Log Buddy.
     ***************/
     status(packet) {
-      return this.status();
+      return Promise.resolve(this.status());
     },
 
     /**************
