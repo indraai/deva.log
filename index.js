@@ -5,12 +5,12 @@ const info = {
   id: package.id,
   name: package.name,
   version: package.version,
-  author: package.author,
-  describe: package.description,
   url: package.homepage,
   git: package.repository.url,
   bugs: package.bugs.url,
   license: package.license,
+  author: package.author,
+  describe: package.description,
   copyright: package.copyright
 };
 
