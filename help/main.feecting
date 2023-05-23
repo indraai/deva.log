@@ -4,17 +4,17 @@ p:Copyright (c)2023 Quinn Michaels
 p:This is the main help file for Log Deva. The Log file Deva
 
 id: 4148108755733
-key: LogDeva
+key: log
 name: Log Deva
 describe: The Log file Deva
 
 ### Methods
 
-cmd:#LogDeva uid
+cmd:#log uid
 p:Generate a unique id from the Log Deva.
 
-cmd:#LogDeva status
+cmd:#log status
 p:Return the status for the Log Deva.
 
-cmd:#LogDeva help
+cmd:#log help
 p:Get help using the Log Deva

@@ -5,10 +5,10 @@
   "data": {
     "agent": {
       "id": 4148108755733,
-      "key": "LogDeva",
+      "key": "log",
       "prompt": {
         "emoji": "🪵 ",
-        "text": "LogDeva",
+        "text": "log",
         "colors": {
           "label": {
             "R": 253,
