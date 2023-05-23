@@ -10,11 +10,11 @@ describe: The Log file Deva
 
 ### Methods
 
-cmd:#logdeva uid
+cmd:#LogDeva uid
 p:Generate a unique id from the Log Deva.
 
-cmd:#logdeva status
+cmd:#LogDeva status
 p:Return the status for the Log Deva.
 
-cmd:#logdeva help
+cmd:#LogDeva help
 p:Get help using the Log Deva

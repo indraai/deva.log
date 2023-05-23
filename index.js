@@ -5,7 +5,7 @@ const info = {
   name: package.name,
   version: package.version,
   author: package.author,
-  describe: package.describe,
+  describe: package.description,
   url: package.homepage,
   git: package.repository.url,
   bugs: package.bugs.url,
