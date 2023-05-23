@@ -11,7 +11,7 @@ const info = {
   license: package.license,
   author: package.author,
   describe: package.description,
-  copyright: package.copyright
+  copyright: package.copyright,
 };
 
 const fs = require('fs');
