@@ -77,22 +77,19 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_question(packet) {
-      const client = packet.q.client.id;
+      const _packet = this.copy(packet);
+      const client = _packet.q.client.id;
       const agent = {
-        id: packet.q.agent.id,
-        key: packet.q.agent.key,
-        name: packet.q.agent.name,
+        id: _packet.q.agent.id,
+        key: _packet.q.agent.key,
+        name: _packet.q.agent.name,
       };
-
-      delete packet.q.client;
-      delete packet.q.agent;
-      delete packet.a;
-
-      packet.client = client;
-      packet.agent = agent;
-
-      this.func.log_write('question', packet);
-
+      delete _packet.q.client;
+      delete _packet.q.agent;
+      delete _packet.a;
+      _packet.client = client;
+      _packet.agent = agent;
+      this.func.log_write('question', _packet);
     },
 
     /**************
@@ -101,23 +98,24 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_answer(packet) {
-      const client = packet.a.client.id;
+      const _packet = this.copy(packet);
+      const client = _packet.a.client.id;
       const agent = {
-        id: packet.a.agent.id,
-        key: packet.a.agent.key,
-        name: packet.a.agent.name,
+        id: _packet.a.agent.id,
+        key: _packet.a.agent.key,
+        name: _packet.a.agent.name,
       };
 
-      delete packet.a.client;
-      delete packet.a.agent;
-      delete packet.a.client;
-      delete packet.a.agent;
+      delete _packet.a.client;
+      delete _packet.a.agent;
+      delete _packet.a.client;
+      delete _packet.a.agent;
       delete packet.q;
 
-      packet.client = client;
-      packet.agent = agent;
+      _packet.client = client;
+      _packet.agent = agent;
 
-      this.func.log_write('answer', packet);
+      this.func.log_write('answer', _packet);
     },
 
     log_write(type, packet) {
@@ -152,7 +150,7 @@ const LOG = new Deva({
           const log_data = [
             `id: ${this.uid(true)}`,
             `created: ${this.formatDate(Date.now(), 'short', true)}`,
-            `packet: ${JSON.stringify(packet)}`,
+            `packet: `,
             `hash: ${this.hash(JSON.stringify(packet), 'sha512')}`,
             '---'
           ].join('\n');
@@ -206,19 +204,19 @@ const LOG = new Deva({
     if (profile.logs) this.vars.log_dir = profile.logs;
 
     this.listen('devacore:state', packet => {
-      return this.func.log_state(this.copy(packet));
+      return this.func.log_state(packet);
     });
     this.listen('devacore:action', packet => {
-      return this.func.log_action(this.copy(packet));
+      return this.func.log_action(packet);
     });
     this.listen('devacore:question', packet => {
-      return this.func.log_question(this.copy(packet));
+      return this.func.log_question(packet);
     });
     this.listen('devacore:answer', packet => {
-      return this.func.log_answer(this.copy(packet));
+      return this.func.log_answer(packet);
     });
     this.listen('devacore:error', packet => {
-      return this.func.log_error(this.copy(packet));
+      return this.func.log_error(packet);
     });
     return Promise.resolve(this._messages.states.done);
   }
