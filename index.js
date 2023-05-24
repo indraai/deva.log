@@ -205,8 +205,7 @@ const LOG = new Deva({
   },
   onDone(data) {
     const {profile} = this.client();
-    console.log('profile', profile);
-    this.vars.log_dir = profile.logs;
+    if (profile.logs) this.vars.log_dir = profile.logs;
 
     this.listen('devacore:state', packet => {
       return this.func.log_state(this.copy(packet));
