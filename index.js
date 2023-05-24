@@ -127,7 +127,6 @@ const LOG = new Deva({
 
       const theAgent = packet.agent.key;
 
-      this.prompt(`LOG DIR - ${this.vars.log_dir}`);
       const theLoc = path.join(`${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
       let theDir = path.join(__dirname, 'logs', `${theLoc}`)
       if (this.vars.log_dir) theDir = path.join(`${this.vars.log_dir}`, `${theLoc}`);
@@ -160,7 +159,6 @@ const LOG = new Deva({
           fs.appendFile(theFile, log_data, 'utf8', err => {
             if (err) return this.error(err, packet, reject);
           });
-          this.prompt(theDir)
         });
       });
     },
