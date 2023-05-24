@@ -2,7 +2,7 @@
   "name": "Log Deva Data File",
   "describe": "The main Data file for Log Deva",
   "copyright": "Copyright (c)2023 Quinn Michaels. All rights reserved.",
-  "data": {
+  "DATA": {
     "agent": {
       "id": 4148108755733,
       "key": "log",
@@ -45,7 +45,8 @@
         "done": "🟣 DONE",
         "error": "💣 ERROR!"
       },
-      "relay": "clirelay"
+      "relay": "clirelay",
+      "log_dir": false
     }
   }
 }

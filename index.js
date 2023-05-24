@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 
 const data_path = path.join(__dirname, 'data.json');
-const {agent,vars} = require(data_path).data;
+const {agent,vars} = require(data_path).DATA;
 
 const Deva = require('@indra.ai/deva');
 const LOG = new Deva({
@@ -127,41 +127,43 @@ const LOG = new Deva({
 
       const theAgent = packet.agent.key;
 
-      const theDir = path.join(__dirname, '..', '..', '..', 'logs', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`);
-      const theFile = path.join(theDir, `${this.getToday()}.json`);
-
+      this.prompt(`LOG DIR - ${this.vars.log_dir}`);
+      const theLoc = path.join(`${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
+      let theDir = path.join(__dirname, 'logs', `${theLoc}`)
+      if (this.vars.log_dir) theDir = path.join(`${this.vars.log_dir}`, `${theLoc}`);
+      const theFile = path.join(theDir, `${this.getToday()}.log`);
 
       return new Promise((resolve, reject) => {
 
         fs.mkdir(theDir, {recursive:true}, err => {
-          if (err) return reject(err);
+          if (err) return this.error(err, packet, reject);
           // first check for file and if it does not then write the base file for the day
           if (! fs.existsSync(theFile)) {
-            const json = {
-              id: this.uid(),
-              date: this.formatDate(theDate, 'long', true),
-              type,
-              copyright: `Copyright (c) ${theDate.getFullYear()} indra.ai, All Rights Reserved.`,
-              data: [],
-            };
-            const data = JSON.stringify(json);
-            fs.writeFileSync(theFile, data, {encoding:'utf8',flag:'w'});
+            const header = [
+              `id: ${this.uid(true)}`,
+              `type: ${type}`,
+              `date: ${this.formatDate(theDate, 'long', true)}`,
+              `copyright: Copyright (c) ${theDate.getFullYear()} Quinn Michaels, All Rights Reserved.`,
+              '---',
+            ].join('\n');
+            fs.writeFileSync(theFile, header, {encoding:'utf8',flag:'w'});
           }
 
           // then after we check the file we are going to read the file and then add new data to the log.
-          const raw = fs.readFileSync(theFile);
-          const log = JSON.parse(raw);
-          const log_data = {
-            guid: this.uid(true),
-            packet: JSON.stringify(packet),
-            created: Date.now(),
-          };
-          log.data.push(log_data);
-          log.hash = this.hash(JSON.stringify(log.data, null, 2), 'sha512');
-          fs.writeFileSync(theFile, JSON.stringify(log, null, 2), {encoding:'utf8',flag:'w'});
+          const log_data = [
+            `id: ${this.uid(true)}`,
+            `created: ${this.formatDate(Date.now(), 'short', true)}`,
+            `packet: ${JSON.stringify(packet)}`,
+            `hash: ${this.hash(JSON.stringify(packet), 'sha512')}`,
+            '---'
+          ].join('\n');
+          fs.appendFile(theFile, log_data, 'utf8', err => {
+            if (err) return this.error(err, packet, reject);
+          });
+          this.prompt(theDir)
         });
       });
-    }
+    },
   },
   methods: {
     /**************
@@ -202,6 +204,10 @@ const LOG = new Deva({
     }
   },
   onDone(data) {
+    const {profile} = this.client();
+    console.log('profile', profile);
+    this.vars.log_dir = profile.logs;
+
     this.listen('devacore:state', packet => {
       return this.func.log_state(this.copy(packet));
     });
