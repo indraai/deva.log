@@ -52,6 +52,26 @@ const LOG = new Deva({
     },
 
     /**************
+    func: log_zone
+    params: packet
+    describe: log the state changes in the machine.
+    ***************/
+    log_zone(packet) {
+      const isSelf = this.agent().id == packet.agent.id;
+      this.func.log_write('zone', packet);
+    },
+
+    /**************
+    func: log_feature
+    params: packet
+    describe: log the state changes in the machine.
+    ***************/
+    log_feature(packet) {
+      const isSelf = this.agent().id == packet.agent.id;
+      this.func.log_write('feature', packet);
+    },
+
+    /**************
     func: log_action
     params: packet
     describe: log the state changes in the machine.
