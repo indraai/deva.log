@@ -230,10 +230,10 @@ const LOG = new Deva({
       return this.func.log_action(packet);
     });
     this.listen('devacore:feature', packet => {
-      return this.func.log_action(packet);
+      return this.func.log_feature(packet);
     });
     this.listen('devacore:zone', packet => {
-      return this.func.log_action(packet);
+      return this.func.log_zone(packet);
     });
     this.listen('devacore:question', packet => {
       return this.func.log_question(packet);
