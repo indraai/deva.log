@@ -97,19 +97,19 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_question(packet) {
-      const _packet = this.copy(packet);
-      const client = _packet.q.client.id;
+      const p = packet;
+      const client = p.q.client.id;
       const agent = {
-        id: _packet.q.agent.id,
-        key: _packet.q.agent.key,
-        name: _packet.q.agent.name,
+        id: p.q.agent.id,
+        key: p.q.agent.key,
+        name: p.q.agent.name,
       };
-      delete _packet.q.client;
-      delete _packet.q.agent;
-      delete _packet.a;
-      _packet.client = client;
-      _packet.agent = agent;
-      this.func.log_write('question', _packet);
+      delete p.q.client;
+      delete p.q.agent;
+      delete p.a;
+      p.client = client;
+      p.agent = agent;
+      this.func.log_write('question', p);
     },
 
     /**************
@@ -118,32 +118,35 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_answer(packet) {
-      const _packet = this.copy(packet);
-      const client = _packet.a.client.id;
+      const p = packet;
+      const client = p.a.client.id;
       const agent = {
-        id: _packet.a.agent.id,
-        key: _packet.a.agent.key,
-        name: _packet.a.agent.name,
+        id: p.a.agent.id,
+        key: p.a.agent.key,
+        name: p.a.agent.name,
       };
 
-      delete _packet.a.client;
-      delete _packet.a.agent;
-      delete _packet.a.client;
-      delete _packet.a.agent;
-      delete packet.q;
+      delete p.a.client;
+      delete p.a.agent;
+      delete p.a.client;
+      delete p.a.agent;
+      delete p.q;
 
-      _packet.client = client;
-      _packet.agent = agent;
+      p.client = client;
+      p.agent = agent;
 
-      this.func.log_write('answer', _packet);
+      this.func.log_write('answer', p);
     },
 
     log_write(type, packet) {
+      const packetstr = JSON.stringify(packet);
+      const pack = JSON.parse(packetstr);
+
       const theDate = new Date();
       const theMonth = theDate.getMonth() + 1;
       const theYear = theDate.getFullYear();
 
-      const theAgent = packet.agent.key;
+      const theAgent = pack.agent.key;
 
       const theLoc = path.join(`${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
       let theDir = path.join(__dirname, 'logs', `${theLoc}`)
@@ -153,7 +156,7 @@ const LOG = new Deva({
       return new Promise((resolve, reject) => {
 
         fs.mkdir(theDir, {recursive:true}, err => {
-          if (err) return this.error(err, packet, reject);
+          if (err) return this.error(err, pack, reject);
           // first check for file and if it does not then write the base file for the day
           if (! fs.existsSync(theFile)) {
             const header = [
@@ -162,20 +165,23 @@ const LOG = new Deva({
               `date: ${this.formatDate(theDate, 'long', true)}`,
               `copyright: Copyright (c) ${theDate.getFullYear()} Quinn Michaels, All Rights Reserved.`,
               '---',
+              '',
             ].join('\n');
             fs.writeFileSync(theFile, header, {encoding:'utf8',flag:'w'});
           }
 
           // then after we check the file we are going to read the file and then add new data to the log.
           const log_data = [
+            '',
+            '---',
             `id: ${this.uid(true)}`,
             `created: ${this.formatDate(Date.now(), 'short', true)}`,
-            `packet: `,
-            `hash: ${this.hash(JSON.stringify(packet), 'sha512')}`,
-            '---'
+            `packet: ${packetstr}`,
+            `hash: ${this.hash(packetstr, 'sha512')}`,
+            '',
           ].join('\n');
           fs.appendFile(theFile, log_data, 'utf8', err => {
-            if (err) return this.error(err, packet, reject);
+            if (err) return this.error(err, pack, reject);
           });
         });
       });
