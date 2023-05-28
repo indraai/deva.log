@@ -142,20 +142,15 @@ const LOG = new Deva({
     log_write(type, packet) {
       const packetstr = JSON.stringify(packet);
       const pack = JSON.parse(packetstr);
-
       const theDate = new Date();
       const theMonth = theDate.getMonth() + 1;
       const theYear = theDate.getFullYear();
-
       const theAgent = pack.agent.key;
-
       const theLoc = path.join('logs', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
       let theDir = path.join(__dirname, `${theLoc}`)
       if (this.config.dir) theDir = path.join(this.config.dir, theLoc);
       const theFile = path.join(theDir, `${this.getToday()}.log`);
-
       return new Promise((resolve, reject) => {
-
         fs.mkdir(theDir, {recursive:true}, err => {
           if (err) return this.error(err, pack, reject);
           // first check for file and if it does not then write the base file for the day
