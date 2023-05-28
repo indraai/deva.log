@@ -154,8 +154,6 @@ const LOG = new Deva({
       if (this.config.dir) theDir = path.join(this.config.dir, theLoc);
       const theFile = path.join(theDir, `${this.getToday()}.log`);
 
-      this.prompt(theFile);
-
       return new Promise((resolve, reject) => {
 
         fs.mkdir(theDir, {recursive:true}, err => {
