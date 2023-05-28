@@ -109,6 +109,7 @@ const LOG = new Deva({
       delete p.a;
       p.client = client;
       p.agent = agent;
+
       this.func.log_write('question', p);
     },
 
@@ -148,10 +149,12 @@ const LOG = new Deva({
 
       const theAgent = pack.agent.key;
 
-      const theLoc = path.join(`${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
-      let theDir = path.join(__dirname, 'logs', `${theLoc}`)
-      if (this.vars.log_dir) theDir = path.join(`${this.vars.log_dir}`, `${theLoc}`);
+      const theLoc = path.join('logs', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
+      let theDir = path.join(__dirname, `${theLoc}`)
+      if (this.config.dir) theDir = path.join(this.config.dir, theLoc);
       const theFile = path.join(theDir, `${this.getToday()}.log`);
+
+      this.prompt(theFile);
 
       return new Promise((resolve, reject) => {
 
