@@ -199,11 +199,7 @@ const LOG = new Deva({
     describe: Return the current status of the Log Buddy.
     ***************/
     status(packet) {
-      const status =this.status()
-      return Promise.resolve({
-        text: status,
-        html: status,
-      });
+      return Promise.resolve(this.status());
     },
 
     /**************
@@ -226,9 +222,6 @@ const LOG = new Deva({
     }
   },
   onDone(data) {
-    const {profile} = this.client();
-    if (profile.logs) this.vars.log_dir = profile.logs;
-
     this.listen('devacore:state', packet => {
       return this.func.log_state(packet);
     });
