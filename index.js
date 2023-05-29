@@ -199,7 +199,11 @@ const LOG = new Deva({
     describe: Return the current status of the Log Buddy.
     ***************/
     status(packet) {
-      return Promise.resolve(this.status());
+      const status =this.status()
+      return Promise.resolve({
+        text: status,
+        html: status,
+      });
     },
 
     /**************
