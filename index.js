@@ -92,6 +92,16 @@ const LOG = new Deva({
     },
 
     /**************
+    func: log_state
+    params: packet
+    describe: log the state changes in the machine.
+    ***************/
+    log_context(packet) {
+      const isSelf = this.agent().id == packet.agent.id;
+      this.func.log_write('context', packet);
+    },
+
+    /**************
     func: log_question
     params: packet
     describe: this is the logging mechanism for system questions.
@@ -239,6 +249,9 @@ const LOG = new Deva({
     });
     this.listen('devacore:answer', packet => {
       return this.func.log_answer(packet);
+    });
+    this.listen('devacore:context', packet => {
+      return this.func.log_context(packet);
     });
     this.listen('devacore:error', packet => {
       return this.func.log_error(packet);
