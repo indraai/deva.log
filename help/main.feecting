@@ -7,23 +7,24 @@ key: #log
 name: Log Deva
 describe: The Log file Deva
 
-### Methods
+## Methods
 
-### uid
+### 1. uid
 p:Generate a unique id from the Log Deva.
 cmd:#log uid
 
-### status
+### 2. status
 p:Return the status for the Log Deva.
 cmd:#log status
 
-### help
+### 3. help
 p:Get help using the Log Deva
 cmd:#log help
 
+---
 
 #color = ::agent_color::
-#bgcolor = ::agnet_bgcolor::
+#bgcolor = ::agent_bgcolor::
 #bg = ::agent_background::
 
 copyright: (c)2023 Quinn Michaels

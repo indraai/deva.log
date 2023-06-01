@@ -33,7 +33,7 @@
         "avatar": "/public/devas/log/avatar.png",
         "background": "/public/devas/log/background.png",
         "color": "#fdff64",
-        "bgcolor": "#1b1b1b",
+        "bgcolor": "#000000",
         "gender": "M"
       }
     },
