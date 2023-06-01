@@ -46,7 +46,11 @@
         "error": "💣 ERROR!"
       },
       "relay": "clirelay",
-      "log_dir": false
+      "context": {
+        "status": "Log Deva getting status",
+        "uid": "Log Deva getting a uid",
+        "help": "Log Deva getting help"
+      }
     }
   }
 }

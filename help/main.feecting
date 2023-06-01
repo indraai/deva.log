@@ -1,4 +1,4 @@
-## Log Deva
+# Log Deva
 p:Copyright (c)2023 Quinn Michaels
 
 p:This is the main help file for Log Deva. The Log file Deva
@@ -18,3 +18,6 @@ p:Return the status for the Log Deva.
 
 cmd:#log help
 p:Get help using the Log Deva
+
+#color = var(--color-light-grey)
+#bgcolor = var(--color-darkest-grey)

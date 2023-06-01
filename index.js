@@ -200,6 +200,7 @@ const LOG = new Deva({
     describe: Return a system id to the user from the Log Buddy.
     ***************/
     uid(packet) {
+      this.context('uid');
       return Promise.resolve({text:this.uid()});
     },
 
@@ -209,6 +210,7 @@ const LOG = new Deva({
     describe: Return the current status of the Log Buddy.
     ***************/
     status(packet) {
+      this.context('status');
       return Promise.resolve(this.status());
     },
 
@@ -218,8 +220,9 @@ const LOG = new Deva({
     describe: The Help method returns the information on how to use the Log Buddy.
     ***************/
     help(packet) {
+      this.context('help');
       return new Promise((resolve, reject) => {
-        this.lib.help(packet.q.text, __dirname).then(help => {
+        this.help(packet.q.text, __dirname).then(help => {
           return this.question(`#feecting parse ${help}`);
         }).then(parsed => {
           return resolve({
