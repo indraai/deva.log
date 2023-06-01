@@ -1,4 +1,7 @@
 // Log Deva (c)2023 Quinn Michaels
+// Log Deva handles logging events in deva.world
+const fs = require('fs');
+const path = require('path');
 
 const package = require('./package.json');
 const info = {
@@ -13,9 +16,6 @@ const info = {
   author: package.author,
   copyright: package.copyright,
 };
-
-const fs = require('fs');
-const path = require('path');
 
 const data_path = path.join(__dirname, 'data.json');
 const {agent,vars} = require(data_path).DATA;
