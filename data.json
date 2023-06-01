@@ -22,10 +22,6 @@
           }
         }
       },
-      "voice": {
-        "speech": "Alex",
-        "speed": 1
-      },
       "profile": {
         "name": "Log Deva",
         "describe": "The Log file Deva",
@@ -34,7 +30,8 @@
         "background": "/public/devas/log/background.png",
         "color": "#fdff64",
         "bgcolor": "#000000",
-        "gender": "M"
+        "gender": "M",
+        "voice": "Joey"
       }
     },
     "vars": {

@@ -2,10 +2,11 @@
 
 p:This is the main help file for Log Deva. The Log file Deva
 
-id: 4148108755733
-key: #log
-name: Log Deva
-describe: The Log file Deva
+id: ::agent_id::
+key: #::agent_key::
+name: ::agent_name::
+emoji: ::agent_emoji::
+describe: ::agent_describe::
 
 ## Methods
 
