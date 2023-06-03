@@ -23,19 +23,13 @@ const {agent,vars} = require(data_path).DATA;
 const Deva = require('@indra.ai/deva');
 const LOG = new Deva({
   info,
-  agent: {
-    id: agent.id,
-    key: agent.key,
-    prompt: agent.prompt,
-    profile: agent.profile,
-    translate(input) {
-      return input.trim();
-    },
-    parse(input) {
-      return input.trim();
-    }
-  },
+  agent,
   vars,
+  utils: {
+    translate(input) {return input.trim();},
+    parse(input) {return input.trim();},
+    proecess(input) {return input.trim();}
+  },
   listeners: {},
   modules: {},
   deva: {},
@@ -192,47 +186,7 @@ const LOG = new Deva({
       });
     },
   },
-  methods: {
-    /**************
-    method: uid
-    params: packet
-    describe: Return a system id to the user from the Log Buddy.
-    ***************/
-    uid(packet) {
-      this.context('uid');
-      return Promise.resolve({text:this.uid()});
-    },
-
-    /**************
-    method: status
-    params: packet
-    describe: Return the current status of the Log Buddy.
-    ***************/
-    status(packet) {
-      this.context('status');
-      return Promise.resolve(this.status());
-    },
-
-    /**************
-    method: help
-    params: packet
-    describe: The Help method returns the information on how to use the Log Buddy.
-    ***************/
-    help(packet) {
-      this.context('help');
-      return new Promise((resolve, reject) => {
-        this.help(packet.q.text, __dirname).then(help => {
-          return this.question(`#feecting parse ${help}`);
-        }).then(parsed => {
-          return resolve({
-            text: parsed.a.text,
-            html: parsed.a.html,
-            data: parsed.a.data,
-          });
-        }).catch(reject);
-      });
-    }
-  },
+  methods: {},
   onDone(data) {
     this.listen('devacore:state', packet => {
       return this.func.log_state(packet);
