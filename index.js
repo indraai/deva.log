@@ -20,6 +20,7 @@ const info = {
 
 const data_path = path.join(__dirname, 'data.json');
 const {agent,vars} = require(data_path).DATA;
+agent.dir = __dirname;
 
 const LOG = new Deva({
   info,
