@@ -1,8 +1,9 @@
 // Log Deva (c)2023 Quinn Michaels
 // Log Deva handles logging events in deva.world
+const Deva = require('@indra.ai/deva');
+
 const fs = require('fs');
 const path = require('path');
-
 const package = require('./package.json');
 const info = {
   id: package.id,
@@ -20,7 +21,6 @@ const info = {
 const data_path = path.join(__dirname, 'data.json');
 const {agent,vars} = require(data_path).DATA;
 
-const Deva = require('@indra.ai/deva');
 const LOG = new Deva({
   info,
   agent,
