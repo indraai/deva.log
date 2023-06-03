@@ -46,9 +46,12 @@
       },
       "relay": "clirelay",
       "context": {
-        "status": "Log Deva getting status",
-        "uid": "Log Deva getting a uid",
-        "help": "Log Deva getting help"
+        "uid": "generating uid",
+        "status": "getting status",
+        "info": "getting info",
+        "feature": "accessing feature",
+        "issue": "has issues",
+        "help": "asking for help"
       }
     }
   }
