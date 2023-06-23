@@ -151,7 +151,9 @@ const LOG = new Deva({
       const theMonth = theDate.getMonth() + 1;
       const theYear = theDate.getFullYear();
       const theAgent = pack.agent.key;
-      const theLoc = path.join('logs', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
+      const theLoc = path.join('logs', 'devas', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
+      if (type === 'answer') this.prompt(`Logging answer ${theLoc}`);
+
       let theDir = path.join(__dirname, `${theLoc}`)
       if (this.config.dir) theDir = path.join(this.config.dir, theLoc);
       const theFile = path.join(theDir, `${this.getToday()}.log`);
@@ -203,9 +205,11 @@ const LOG = new Deva({
       return this.func.log_zone(packet);
     });
     this.listen('devacore:question', packet => {
+      this.prompt('LOGGING QUESTIONS')
       return this.func.log_question(packet);
     });
     this.listen('devacore:answer', packet => {
+      this.prompt('LOGGING ANSWER')
       return this.func.log_answer(packet);
     });
     this.listen('devacore:context', packet => {
