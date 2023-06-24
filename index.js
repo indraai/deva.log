@@ -102,19 +102,7 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_question(packet) {
-      const p = packet;
-      const client = p.q.client.id;
-      const agent = {
-        id: p.q.agent.id,
-        key: p.q.agent.key,
-        name: p.q.agent.name,
-      };
-      delete p.q.client;
-      delete p.q.agent;
-      delete p.a;
-      p.client = client;
-      p.agent = agent;
-
+      const p = this.copy(packet);
       this.func.log_write('question', p);
     },
 
@@ -124,23 +112,7 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_answer(packet) {
-      const p = packet;
-      const client = p.a.client.id;
-      const agent = {
-        id: p.a.agent.id,
-        key: p.a.agent.key,
-        name: p.a.agent.name,
-      };
-
-      delete p.a.client;
-      delete p.a.agent;
-      delete p.a.client;
-      delete p.a.agent;
-      delete p.q;
-
-      p.client = client;
-      p.agent = agent;
-
+      const p = this.copy(packet);
       this.func.log_write('answer', p);
     },
 
