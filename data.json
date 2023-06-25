@@ -45,7 +45,15 @@
         "error": "💣 ERROR!"
       },
       "relay": "clirelay",
+      "actions": {
+        "log_question": "logging a question",
+        "log_answer": "logging an answer",
+        "log_ask": "logging an ask"
+      },
       "context": {
+        "question": "logging a question",
+        "answer": "logging an answer",
+        "ask": "logging an ask",
         "uid": "generating uid",
         "status": "getting status",
         "info": "getting info",

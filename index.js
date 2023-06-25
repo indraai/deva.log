@@ -102,7 +102,22 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_question(packet) {
+      this.prompt('LOG QUESTION')
+      this.action('log_question');
       const p = this.copy(packet);
+      const client = p.q.client.id;
+      const agent = {
+        id: p.q.agent.id,
+        key: p.q.agent.key,
+        name: p.q.agent.name,
+      };
+      delete p.q.client;
+      delete p.q.agent;
+      delete p.a;
+
+      p.client = client;
+      p.agent = agent;
+
       this.func.log_write('question', p);
     },
 
@@ -112,8 +127,50 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_answer(packet) {
+      this.action('log_answer');
       const p = this.copy(packet);
+      const client = p.a.client.id;
+      const agent = {
+        id: p.a.agent.id,
+        key: p.a.agent.key,
+        name: p.a.agent.name,
+      };
+
+      delete p.a.client;
+      delete p.a.agent;
+      delete p.q.client;
+      delete p.q.agent;
+
+      p.client = client;
+      p.agent = agent;
+
       this.func.log_write('answer', p);
+    },
+
+    /**************
+    func: log_ask
+    params: packet
+    describe: this is the logging mechanism for system questions.
+    ***************/
+    log_ask(packet) {
+      this.action('log_ask');
+      const p = this.copy(packet);
+      const client = p.a.client.id;
+      const agent = {
+        id: p.a.agent.id,
+        key: p.a.agent.key,
+        name: p.a.agent.name,
+      };
+
+      delete p.a.client;
+      delete p.a.agent;
+      delete p.q.client;
+      delete p.q.agent;
+
+      p.client = client;
+      p.agent = agent;
+
+      this.func.log_write('ask', p);
     },
 
     log_write(type, packet) {
@@ -177,12 +234,13 @@ const LOG = new Deva({
       return this.func.log_zone(packet);
     });
     this.listen('devacore:question', packet => {
-      this.prompt('LOGGING QUESTIONS')
       return this.func.log_question(packet);
     });
     this.listen('devacore:answer', packet => {
-      this.prompt('LOGGING ANSWER')
       return this.func.log_answer(packet);
+    });
+    this.listen('devacore:ask', packet => {
+      return this.func.log_ask(packet);
     });
     this.listen('devacore:context', packet => {
       return this.func.log_context(packet);
