@@ -180,7 +180,6 @@ const LOG = new Deva({
       const theYear = theDate.getFullYear();
       const theAgent = pack.agent.key;
       const theLoc = path.join('logs', 'devas', `${theAgent}`, `${type}`, `${theYear}`, `${theMonth}`)
-      if (type === 'answer') this.prompt(`Logging answer ${theLoc}`);
 
       let theDir = path.join(__dirname, `${theLoc}`)
       if (this.config.dir) theDir = path.join(this.config.dir, theLoc);
