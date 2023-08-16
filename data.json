@@ -46,9 +46,9 @@
       },
       "relay": "clirelay",
       "actions": {
-        "log_question": "logging a question",
-        "log_answer": "logging an answer",
-        "log_ask": "logging an ask"
+        "log_question": "question",
+        "log_answer": "answer",
+        "log_ask": "ask"
       },
       "context": {
         "question": "logging a question",
