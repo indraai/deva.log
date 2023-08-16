@@ -61,7 +61,6 @@ const LOG = new Deva({
     describe: this is the logging mechanism for system questions.
     ***************/
     log_answer(packet) {
-      this.prompt('LOG ANSWER');
       const p = this.copy(packet);
       const client = p.a.client.id;
       const agent = {
