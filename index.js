@@ -1,5 +1,5 @@
 // Log Deva (c)2023 Quinn Michaels
-// Log Deva handles logging events in deva.world
+// Log Deva handles logging events
 const Deva = require('@indra.ai/deva');
 
 const fs = require('fs');
