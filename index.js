@@ -159,7 +159,7 @@ const LOG = new Deva({
     this.listen('devacore:error', packet => {
       return this.func.log_error(packet);
     });
-    return Promise.resolve(this._messages.states.done);
+    return Promise.resolve(data);
   }
 });
 module.exports = LOG
