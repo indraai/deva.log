@@ -93,6 +93,12 @@ const LOG = new Deva({
       this.func.log_write('ask', p);
     },
 
+    /**************
+    func: log_write
+    params: type, packet
+    describe: this is the log file writer function that handles writing
+    the interactions to json logfile.
+    ***************/
     log_write(type, packet) {
       const theUTC = Date.now();
       const theDate = new Date(theUTC);
