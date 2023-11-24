@@ -33,7 +33,20 @@ const LOG = new Deva({
     parse(input) {return input.trim();},
     proecess(input) {return input.trim();}
   },
-  listeners: {},
+  listeners: {
+    'devacore:question'(packet) {
+      this.func.log_write('question', packet);
+    },
+    'devacore:answer'(packet) {
+      this.func.log_write('answer', packet);
+    },
+    'devacore:ask'(packet) {
+      this.func.log_write('ask', packet);
+    },
+    'devacore:error'(packet) {
+      this.func.log_write('error', packet);
+    },
+  },
   modules: {
     client: false,
   },
@@ -64,25 +77,11 @@ const LOG = new Deva({
 
   },
   methods: {},
-  onDone(data) {
+  onInit(data) {
     const {uri,database} = this.services().personal.mongo;
     this.modules.client = new MongoClient(uri);
     this.vars.database = database;
-
-    this.listen('devacore:question', packet => {
-      return this.func.log_write('question', packet);
-    });
-    this.listen('devacore:answer', packet => {
-      return this.func.log_write('answer', packet);
-    });
-    this.listen('devacore:ask', packet => {
-      return this.func.log_write('ask', packet);
-    });
-    this.listen('devacore:error', packet => {
-      return this.func.log_write('error', packet);
-    });
-
-    return Promise.resolve(data);
+    return this.start(data);
   }
 });
 module.exports = LOG

@@ -25,7 +25,7 @@
     "url": "https://github.com/indraai/LogDeva/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.2.11",
+    "@indra.ai/deva": "^1.2.20",
     "mongodb": "^6.1.0"
   }
 }

@@ -30,8 +30,8 @@
         "background": "/public/devas/log/background.png",
         "color": "#fdff64",
         "bgcolor": "#000000",
-        "gender": "M",
-        "voice": "Joey"
+        "gender": "Deva",
+        "voice": "onyx"
       }
     },
     "vars": {
