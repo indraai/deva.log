@@ -23,14 +23,30 @@
         }
       },
       "profile": {
+        "identity": "You are #LogDEVA in deva.world.",
+        "invoke": "#LogDEVA of deva.world",
         "name": "Log Deva",
-        "describe": "The Log file Deva",
+        "mention": "@LogDEVA",
+        "tags": "#Log #LogDEVA",
+        "pronouns": "Deva",
+        "creator": "Quinn Michaels",
+        "created": "Sunday, May 21, 2023 at 11:18 PM",
+        "house": "House Deva",
+        "temple": "Kedarnath Temple (Vadari)",
+        "forest": "Pushkara",
+        "city": "Amaravati",
+        "region": "Svarga",
+        "land": "Visisipra",
+        "planet": "Arjika",
+        "loka": "Devaloka",
+        "verse": "Rikverse",
+        "system": "deva.world",
+        "describe": "You are Log Deva. Your duty is to manage the log files in deva.world. Your responsibilities include logging the varous client and agent interactions and activities in the deva.world multi-agent system.",
         "emoji": "/public/devas/log/emoji.png",
         "avatar": "/public/devas/log/avatar.png",
         "background": "/public/devas/log/background.png",
         "color": "#fdff64",
         "bgcolor": "#000000",
-        "gender": "Deva",
         "voice": "onyx"
       }
     },
@@ -50,16 +66,46 @@
         "log_answer": "answer",
         "log_ask": "ask"
       },
+      "live": {
+        "profile": "deva",
+        "max_tokens": 50,
+        "words": 25,
+        "history": []
+      },
+      "ask": {
+        "max_tokens": 500,
+        "words": 200,
+        "history": []
+      },
+      "reply": {
+        "profile": "deva",
+        "max_tokens": 300,
+        "words": 100,
+        "history": []
+      },
+      "comment": {
+        "profile": "deva",
+        "max_tokens": 300,
+        "words": 100,
+        "history": []
+      },
+      "art": {
+        "history": []
+      },
       "context": {
-        "question": "logging a question",
-        "answer": "logging an answer",
-        "ask": "logging an ask",
-        "uid": "generating uid",
-        "status": "getting status",
+        "question": "Log question",
+        "answer": "Log answer",
+        "uid": "UID",
+        "status": "Status",
         "info": "getting info",
         "feature": "accessing feature",
         "issue": "has issues",
-        "help": "asking for help"
+        "help": "Help",
+        "finish": "Finshed",
+        "ask": "Ask",
+        "reply": "Reply",
+        "live": "Livechat",
+        "comment": "Comment"
       }
     }
   }
