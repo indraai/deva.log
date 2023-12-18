@@ -61,9 +61,7 @@ const LOG = new Deva({
     async log_write(type, packet) {
       const created = Date.now();
       const theDate = new Date(created);
-
       let result = false;
-
       try {
         const database = this.modules.client.db(this.vars.database);
         const collection = database.collection(type);
