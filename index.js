@@ -2,9 +2,6 @@
 // Log Deva handles logging events
 const Deva = require('@indra.ai/deva');
 const { MongoClient } = require("mongodb");
-
-const fs = require('fs');
-const path = require('path');
 const package = require('./package.json');
 const info = {
   id: package.id,
@@ -20,10 +17,7 @@ const info = {
   copyright: package.copyright,
 };
 
-const data_path = path.join(__dirname, 'data.json');
-const {agent,vars} = require(data_path).DATA;
-agent.dir = __dirname;
-
+const {agent,vars} = require('./data.json').DATA;
 const LOG = new Deva({
   info,
   agent,
@@ -50,7 +44,6 @@ const LOG = new Deva({
   modules: {
     client: false,
   },
-  deva: {},
   func: {
     /**************
     func: log_write
