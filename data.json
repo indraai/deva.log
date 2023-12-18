@@ -47,7 +47,8 @@
         "background": "/public/devas/log/background.png",
         "color": "#fdff64",
         "bgcolor": "#000000",
-        "voice": "onyx"
+        "voice": "onyx",
+        "style": "Create designs in the style of technical drawings."
       }
     },
     "vars": {
@@ -70,7 +71,9 @@
         "profile": "deva",
         "max_tokens": 50,
         "words": 25,
-        "history": []
+        "history": [],
+        "max_chats": 5,
+        "page_token": ""
       },
       "ask": {
         "max_tokens": 500,
