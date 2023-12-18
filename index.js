@@ -31,7 +31,7 @@ const LOG = new Deva({
   utils: {
     translate(input) {return input.trim();},
     parse(input) {return input.trim();},
-    proecess(input) {return input.trim();}
+    process(input) {return input.trim();}
   },
   listeners: {
     'devacore:question'(packet) {
