@@ -1,28 +1,30 @@
 {
   "id": 4148108755733,
-  "name": "@indra.ai/logdeva",
-  "version": "0.0.92",
+  "name": "@indra.ai/deva.log",
+  "version": "0.0.1",
   "author": "Quinn Michaels",
   "license": "MIT",
-  "copyright": "2023",
-  "description": "The Log Deva is the manager of the logging events in deva.world.",
-  "homepage": "https://github.com/indraai/LogDeva#readme",
+  "copyright": "2025",
+  "description": "The Log Deva is the manager of the logging events in Deva.space, Deva.cloud, Deva.world.",
+  "homepage": "https://github.com/indraai/deva.log#readme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/indraai/LogDeva.git"
+    "url": "git+https://github.com/indraai/deva.log.git"
   },
   "keywords": [
-    "indra.ai",
-    "log",
-    "deva",
-    "deva.world"
+    "Log",
+    "Deva",
+    "Indra.ai",
+    "Deva.space",
+    "Deva.cloud",
+    "Deva.world"
   ],
   "bugs": {
-    "url": "https://github.com/indraai/LogDeva/issues"
+    "url": "https://deva.space/devas/log"
   },
   "dependencies": {
     "@indra.ai/deva": "^1.2.23",
