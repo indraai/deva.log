@@ -1,8 +1,8 @@
-// Copyright (c)2023 Quinn Michaels
+// Copyright (c)2025 Quinn Michaels
 // Log Buddy test file
 
-const {expect} = require('chai')
-const log = require('./index.js');
+import {expect} from 'chai';
+import log from './index.js';
 
 describe(log.me.name, () => {
   beforeEach(() => {
