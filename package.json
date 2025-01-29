@@ -8,6 +8,7 @@
   "description": "The Log Deva is the manager of the logging events in Deva.space, Deva.cloud, Deva.world.",
   "homepage": "https://github.com/indraai/deva.log#readme",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
