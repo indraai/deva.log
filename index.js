@@ -1,5 +1,5 @@
 // Log Deva (c)2025 Quinn Michaels
-// Log Deva handles logging events
+// Log Deva handles logging events in Deva.space, Deva.cloud, and Deva.world
 import Deva from '@indra.ai/deva';
 import {MongoClient} from 'mongodb';
 import pkg from './package.json' with {type:'json'};
