@@ -80,6 +80,7 @@ const LOG = new Deva({
     const {uri,database} = this.services().personal.mongo;
     this.modules.client = new MongoClient(uri);
     this.vars.database = database;
+    this.prompt('ready')
     return resolve(data);
   }
 });
