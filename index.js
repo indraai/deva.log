@@ -76,11 +76,11 @@ const LOG = new Deva({
 
   },
   methods: {},
-  onInit(data) {
+  onReady(data, resolve) {
     const {uri,database} = this.services().personal.mongo;
     this.modules.client = new MongoClient(uri);
     this.vars.database = database;
-    return this.start(data);
+    return resolve(data);
   }
 });
 export default LOG
