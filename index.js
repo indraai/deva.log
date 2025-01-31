@@ -57,7 +57,7 @@ const LOG = new Deva({
     func: log_write
     params: type, packet
     describe: this is the log file writer function that handles writing
-    the interactions to json logfile.
+    the interactions to json log file.
     ***************/
     async log_write(type, packet) {
       const created = Date.now();
