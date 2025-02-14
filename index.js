@@ -80,8 +80,13 @@ const LOG = new Deva({
     const {uri,database} = this.services().personal.mongo;
     this.modules.client = new MongoClient(uri);
     this.vars.database = database;
-    this.prompt('ready')
+    this.prompt(this.vars.messages.ready)
     return resolve(data);
+  },
+  onError(err, data, reject) {
+    this.prompt(this.vars.messages.error);
+    console.log(err);
+    return reject(err);
   }
 });
 export default LOG
