@@ -28,7 +28,7 @@
     "url": "https://deva.space/devas/log"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.5.18",
+    "@indra.ai/deva": "^1.5.19",
     "@indra.ai/deva.error": "^0.0.10",
     "mongodb": "^6.1.0"
   },
