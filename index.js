@@ -73,7 +73,17 @@ const LOG = new Deva({
     },
 
   },
-  methods: {},
+  methods: {
+    log(packet) {
+      return new Promise((resolve, reject) => {
+        try {
+          return resolve({})
+        } catch (err) {
+          return this.error(err, packet, reject);
+        }
+      });
+    }
+  },
   onReady(data, resolve) {
     const {uri,database} = this.services().personal.mongo;
     this.modules.client = new MongoClient(uri);
