@@ -5,7 +5,7 @@
 **Owner:** Quinn A Michaels  
 **Email:** quinn@indra.ai
 
-This license agreement (“Agreement”) governs the use of the Feecting Deva (“Software”). By accessing or using the Software, you agree to the terms and conditions set forth below. If you do not agree, you are prohibited from using the Software.
+This license agreement (“Agreement”) governs the use of the Log Deva (“Software”). By accessing or using the Software, you agree to the terms and conditions set forth below. If you do not agree, you are prohibited from using the Software.
 
 ## Ownership
 
