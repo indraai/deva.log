@@ -38,9 +38,11 @@ const LOG = new Deva({
   },
   listeners: {
     'devacore:question'(packet) {
+      this.methods.echo(agent.key, 'q', packet);
       this.func.log_write('question', packet);
     },
     'devacore:answer'(packet) {
+      this.methods.echo(agent.key, 'a', packet);
       this.func.log_write('answer', packet);
     },
     'devacore:ask'(packet) {
