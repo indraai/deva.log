@@ -1,7 +1,7 @@
 {
-  "id": 26851615945758424682,
+  "id": 26851615945758425000,
   "name": "@indra.ai/deva.log",
-  "version": "0.0.74",
+  "version": "0.0.75",
   "license": "VLA LICENSE.md",
   "author": {
     "name": "Quinn A Michaels",
@@ -48,7 +48,7 @@
   },
   "data": {
     "agent": {
-      "id": 49262491116334814234,
+      "id": 49262491116334820000,
       "key": "log",
       "prompt": {
         "emoji": "🪵 ",
