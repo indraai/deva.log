@@ -1,5 +1,8 @@
-// Log Deva (c)2025 Quinn Michaels
-// Log Deva handles logging events in Deva.space, Deva.cloud, and Deva.world
+// ©2025 Quinn A Michaels; All rights reserved. 
+// Legal Signature Required For Lawful Use.
+// Distributed under the Vedic License Agreement LICENSE.md
+// Log Deva
+
 import Deva from '@indra.ai/deva';
 import {MongoClient} from 'mongodb';
 import pkg from './package.json' with {type:'json'};

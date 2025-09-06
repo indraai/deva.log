@@ -1,4 +1,7 @@
-// Copyright (c)2025 Quinn Michaels
+// ©2025 Quinn A Michaels; All rights reserved. 
+// Legal Signature Required For Lawful Use.
+// Distributed under the Vedic License Agreement LICENSE.md
+
 // Log Buddy test file
 
 import {expect} from 'chai';

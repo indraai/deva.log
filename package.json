@@ -1,10 +1,24 @@
 {
-  "id": 4148108755733,
+  "id": 26851615945758424682,
   "name": "@indra.ai/deva.log",
   "version": "0.0.74",
-  "author": "Quinn Michaels",
-  "license": "MIT",
-  "copyright": "2025",
+  "license": "VLA LICENSE.md",
+  "author": {
+    "name": "Quinn A Michaels",
+    "email": "quinn@indra.ai",
+    "url": "https://indra.ai/"
+  },
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/rahulaclub"
+    },
+    {
+      "type": "patreon",
+      "url": "https://patreon.com/rahulaclub"
+    }
+  ],
+  "copyright": "(c)2025, Quinn A Michaels; All Rights Reserved.",
   "description": "The Log Deva is the manager of the logging events in Deva.space, Deva.cloud, Deva.world.",
   "homepage": "https://github.com/indraai/deva.log#readme",
   "main": "index.js",
@@ -25,7 +39,7 @@
     "Deva.world"
   ],
   "bugs": {
-    "url": "https://deva.space/devas/log"
+    "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
     "@indra.ai/deva": "^1.5.56",
@@ -34,7 +48,7 @@
   },
   "data": {
     "agent": {
-      "id": 4148108755733,
+      "id": 49262491116334814234,
       "key": "log",
       "prompt": {
         "emoji": "🪵 ",
@@ -74,7 +88,8 @@
         "background": "/assets/devas/log/background.png",
         "owner": "Quinn Michaels",
         "creator": "Quinn Michaels",
-        "created": "Sunday, May 21, 2023 at 11:18 PM"
+        "created": "Sunday, May 21, 2023 at 11:18 PM",
+        "modified": " Saturday, September 6, 2025 - 11:01:03 AM"
       }
     },
     "vars": {
