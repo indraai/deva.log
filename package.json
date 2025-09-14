@@ -1,7 +1,7 @@
 {
   "id": "65258246426544441749",
   "name": "@indra.ai/deva.log",
-  "version": "0.0.121",
+  "version": "0.0.122",
   "license": "VLA:65258246426544441749 LICENSE.md",
   "VLA": {
     "uid": "65258246426544441749",
@@ -15,7 +15,7 @@
     "copyright": "©2025 Quinn A Michaels; All rights reserved.",
     "md5": "H9ttNmLeKzc19ZmKjWoWTw==",
     "sha256": "5ZQx02QoeS7MbUUIftdZXT8VctGp8he2rYCSW+q2Hvs=",
-    "sha512": "EOdn+Hp0unRvBP345JtX/YPZJbX+a70yfNDx/WfGiqNEGBfomNfuxxRQQSJcjOkcgSSX2ch3ZQL3JcPS+BfLXA=="    
+    "sha512": "EOdn+Hp0unRvBP345JtX/YPZJbX+a70yfNDx/WfGiqNEGBfomNfuxxRQQSJcjOkcgSSX2ch3ZQL3JcPS+BfLXA=="
   },
   "author": {
     "name": "Quinn A Michaels",
