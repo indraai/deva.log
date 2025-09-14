@@ -69,14 +69,14 @@
         "text": "Log",
         "colors": {
           "label": {
-            "R": 101,
-            "G": 243,
-            "B": 248
+            "R": 155,
+            "G": 198,
+            "B": 156
           },
           "text": {
-            "R": 252,
-            "G": 183,
-            "B": 84
+            "R": 178,
+            "G": 225,
+            "B": 204
           }
         }
       },
@@ -111,7 +111,7 @@
         "init": "🟠 INIT",
         "start": "🔵 START",
         "enter": "🟢 ENTER",
-        "ready": "📝 Ready for Activity Logging.",
+        "ready": "Ready for Activity Logging",
         "stop": "🔴 STOP",
         "exit": "🟡 EXIT",
         "done": "🟣 DONE",
