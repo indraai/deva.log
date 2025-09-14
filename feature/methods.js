@@ -1,6 +1,7 @@
+"use strict";
 // ©2025 Quinn A Michaels; All rights reserved. 
 // Legal Signature Required For Lawful Use.
-// Distributed under the Vedic License Agreement LICENSE.md
+// Distributed under VLA:65258246426544441749 LICENSE.md
 
 export default {
 	async log(packet) {
