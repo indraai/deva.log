@@ -49,12 +49,10 @@ const LOG = new Deva({
       this.methods.echo(agent.key, 'a', packet);
       this.func.log_write('answer', packet);
     },
-
     // log deva sking another deva
     'devacore:ask'(packet) {
       this.func.log_write('ask', packet);
     },
-    
     // log the answer on finish
     'devacore:finish'(packet) {
       this.func.log_write('finish', packet);
@@ -63,7 +61,6 @@ const LOG = new Deva({
     'devacore:complete'(packet) {
       this.func.log_write('complete', packet);
     },
-      
     // log all errors
     'devacore:error'(packet) {
       this.func.log_write('error', packet);
@@ -88,7 +85,7 @@ const LOG = new Deva({
         const collection = database.collection(type);
         result = await collection.insertOne(packet);
       } catch (e) {
-        console.dir(e);
+        return this.err(e, packet, false);
       } finally {
         return result;
       }
@@ -111,21 +108,27 @@ const LOG = new Deva({
     const agent_license = this.info().VLA; // get agent license
     const license_check = this.license_check(personal, agent_license); // check license
     // return this.start if license_check passes otherwise stop.
+    this.action('return', `onInit:${data.id.uid}`);
     return license_check ? this.start(data, resolve) : this.stop(data, resolve);
   }, 
   onReady(data, resolve) {
     const {VLA} = this.info();
 
+    this.state('get', `mongo:global:${data.id.uid}`);
     const {uri,database} = this.log().global.mongo;
+    this.state('set', `mongo:client:${data.id.uid}`);
     this.modules.client = new MongoClient(uri);
+    this.state('set', `mongo:database:${data.id.uid}`);
     this.vars.database = database;
 
     this.prompt(`${this.vars.messages.ready} > VLA:${VLA.uid}`);
+
+    this.action('resolve', `onReady:${data.id.uid}`);
     return resolve(data);
   },
   onError(err, data, reject) {
     this.prompt(this.vars.messages.error);
-    console.log(err);
+    this.action('reject', `onError:${data.id.uid}`);
     return reject(err);
   }
 });
