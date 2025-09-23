@@ -63,8 +63,7 @@ const LOG = new Deva({
     'devacore:complete'(packet) {
       this.func.log_write('complete', packet);
     },
-  
-    
+      
     // log all errors
     'devacore:error'(packet) {
       this.func.log_write('error', packet);
