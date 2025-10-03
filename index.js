@@ -41,12 +41,10 @@ const LOG = new Deva({
   listeners: {
     // log the question
     'devacore:question'(packet) {
-      this.methods.echo(agent.key, 'q', packet);
       this.func.log_write('question', packet);
     },
     // log the answer
     'devacore:answer'(packet) {
-      this.methods.echo(agent.key, 'a', packet);
       this.func.log_write('answer', packet);
     },
     // log deva sking another deva
