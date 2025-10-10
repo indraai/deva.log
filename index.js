@@ -41,27 +41,27 @@ const LOG = new Deva({
   listeners: {
     // log the question
     'devacore:question'(packet) {
-      this.func.log_write('question', packet);
+      this.func.log_write('question', this.lib.copy(packet));
     },
     // log the answer
     'devacore:answer'(packet) {
-      this.func.log_write('answer', packet);
-    },
+      this.func.log_write('answer', this.lib.copy(packet));
     // log deva sking another deva
+    },
     'devacore:ask'(packet) {
-      this.func.log_write('ask', packet);
+      this.func.log_write('ask', this.lib.copy(packet));
     },
     // log the answer on finish
     'devacore:finish'(packet) {
-      this.func.log_write('finish', packet);
+      this.func.log_write('finish', this.lib.copy(packet));
     },
     // log the answer on complete
     'devacore:complete'(packet) {
-      this.func.log_write('complete', packet);
+      this.func.log_write('complete', this.lib.copy(packet));
     },
     // log all errors
     'devacore:error'(packet) {
-      this.func.log_write('error', packet);
+      this.func.log_write('error', this.lib.copy(packet));
     },
   },
   modules: {
