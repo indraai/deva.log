@@ -57,7 +57,7 @@
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.23.1",
+    "@indra.ai/deva": "^1.23.2",
     "mongodb": "^6.1.0"
   },
   "data": {
