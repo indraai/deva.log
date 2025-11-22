@@ -1,18 +1,16 @@
 {
-  "id": "46926724281701890541",
+  "id": "18508198527557914092",
   "name": "@indra.ai/deva.log",
   "version": "0.10.1",
-  "license": "VLA:46926724281701890541 LICENSE.md",
+  "license": "VLA:18508198527557914092 LICENSE.md",
   "VLA": {
-    "uid": "46926724281701890541",
-    "time": 1763694471377,
-    "date": "Thursday, November 20, 2025 - 7:07:51 PM",
-    "fingerprint": "jUf6X450BBYXicJijIp0g8NiRLitJwpzt1uxeqjXj68=",
+    "uid": "18508198527557914092",
+    "time": 1763833209016,
+    "date": "Saturday, November 22, 2025 - 9:40:09 AM",
     "warning": "⚠️ Unlawful use or duplication of this uid constitutes Vedic Sâhasa a crime of the highest degree. A fine amounting to a thousand Panas (1 pana = 3.5 grams of gold) for each instance is ordained, and confiscation of the entire property of the offenders is forfeit to Quinn A Michaels is declared to be the punishment for Sâhasa of the highest degree.",
-    "copyright": "Copyright ©2000-2025 Quinn A Michaels; All rights reserved.",
-    "md5": "aAPlZ+FvE16w6MnfJg9G+g==",
-    "sha256": "0nnK1EfXy2Qy4x3KNwjyCg/07FuUkKXsq+crxPBaLCU=",
-    "sha512": "rFZlld6+80qrkoK3jMfQhZmVsxvL1JsSZjz0Xg07QVBuhc8tur97+u2y6hp305VSV6vVtzAMSgy7NMwQdQsB6Q=="
+    "license": "46220923248993739422",
+    "fingerprint": "tgXhy+uyqgHoszG/ZSAqVboodjdQcrCbt619/9R6h6c=",
+    "copyright": "Copyright ©2000-2025 Quinn A Michaels; All rights reserved."
   },
   "author": {
     "name": "Quinn A Michaels",
@@ -63,7 +61,7 @@
   },
   "data": {
     "agent": {
-      "id": "46926724281701890541",
+      "id": "18508198527557914092",
       "key": "log",
       "prompt": {
         "emoji": "🪵 ",
@@ -82,9 +80,9 @@
         }
       },
       "profile": {
-        "id": "26436662305158159128",
+        "id": "23297926857847898792",
         "name": "Log Deva",
-        "hashtag": "#Log",
+        "hashtag": "#LogDeva",
         "title": "Log Deva",
         "subtitle": "Log manage in Deva.world",
         "describe": "Log Deva manages the logs in Deva.world.",
@@ -94,18 +92,19 @@
         "gender": "DEVA",
         "style": "You are the master of Vedic style artwork and creative ideas.",
         "voice": "onyx",
-        "system": "Deva.world.log",
+        "system": "Indra.ai.log",
         "layout": "default",
         "color": "rgb(190,121,0)",
         "bgcolor": "rgb(0,0,0)",
-        "emoji": "/assets/devas/log/emoji.png",
-        "avatar": "/assets/devas/log/avatar.png",
-        "image": "/assets/devas/log/image.png",
-        "background": "/assets/devas/log/background.png",
+        "emoji": "/devas/log/emoji.png",
+        "avatar": "/devas/log/avatar.png",
+        "image": "/devas/log/image.png",
+        "background": "/devas/log/background.png",
         "owner": "Quinn A Michaels",
         "creator": "Quinn A Michaels",
         "copyright": "Copyright ©2000-2025 Quinn A Michaels; All rights reserved.",
-        "created": "Sunday, May 21, 2023 at 11:18 PM"
+        "created": "Sunday, May 21, 2023 at 11:18 PM",
+        "updated": "Saturday, November 22, 2025 - 9:40:09 AM"
       }
     },
     "vars": {
