@@ -54,6 +54,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Thank you for choosing Log Deva for your logging and event tracking needs. If you have any further questions or need assistance, feel free to reach out.
 
-Copyright ©2025 Quinn A Michaels; All rights reserved. 
+Copyright ©2000-2025 Quinn A Michaels; All rights reserved. 
 Legal Signature Required For Lawful Use.
-Distributed under VLA:46605441065773246919 LICENSE.md
+Distributed under VLA:46926724281701890541 LICENSE.md

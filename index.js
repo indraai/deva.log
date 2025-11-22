@@ -1,7 +1,7 @@
 "use strict";
-// Copyright ©2025 Quinn A Michaels; All rights reserved. 
+// Copyright ©2000-2025 Quinn A Michaels; All rights reserved. 
 // Legal Signature Required For Lawful Use.
-// Distributed under VLA:46605441065773246919 LICENSE.md
+// Distributed under VLA:46926724281701890541 LICENSE.md
 
 // Log Deva
 

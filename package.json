@@ -1,21 +1,18 @@
 {
-  "id": "46605441065773246919",
+  "id": "46926724281701890541",
   "name": "@indra.ai/deva.log",
   "version": "0.7.0",
-  "license": "VLA:46605441065773246919 LICENSE.md",
+  "license": "VLA:46926724281701890541 LICENSE.md",
   "VLA": {
-    "uid": "46605441065773246919",
-    "time": 1758411662008,
-    "date": "Saturday, September 20, 2025 - 4:41:02 PM",
-    "client": "1UM4AH+/jOGgpaHNqX6lTZsGrNglNogzMx4qDT0O0zs=",
-    "agent": "Ciic9kR1YZbwIT44O5jBuhwCUU4QE7jqipPgTZSYxyE=",
-    "core": "qQRVFQmv3LfY6tcqrEQeM7ZodOpnOUC+PJyfjxtgeVc=",
-    "machine": "7St3+ymvRR/2zKJK8mXRPynEUS3IuJ1POO1/BZJhRek=",
-    "warning": "⚠️ Vedic Law Sâhasa/Theft/Crime of the highest degree, a fine amounting to no less than a thousand Panas (1 pana = 3.5 grams of gold) is ordained owed to Quinn A Michaels. Moreover corporal punishment and confiscation of the entire property forfeit to Quinn A Michaels is declared to be the punishment for Sâhasa of the highest degree.",
-    "copyright": "Copyright ©2025 Quinn A Michaels; All rights reserved.",
-    "md5": "MCZp4jl+7yXtU7Yk15J5aw==",
-    "sha256": "U/y/3RmdbeKvMvlzuwLuiMZ6B98OYIAmINez/cpYqMI=",
-    "sha512": "OM22qXgrSDKtQur4cm9Bn25TuoWGN7CvljOjTCYdcdpzlo0lguOMbxkKo3TS2uuN9y4HTBX9y4VesMM97CD7XA=="
+    "uid": "46926724281701890541",
+    "time": 1763694471377,
+    "date": "Thursday, November 20, 2025 - 7:07:51 PM",
+    "fingerprint": "jUf6X450BBYXicJijIp0g8NiRLitJwpzt1uxeqjXj68=",
+    "warning": "⚠️ Unlawful use or duplication of this uid constitutes Vedic Sâhasa a crime of the highest degree. A fine amounting to a thousand Panas (1 pana = 3.5 grams of gold) for each instance is ordained, and confiscation of the entire property of the offenders is forfeit to Quinn A Michaels is declared to be the punishment for Sâhasa of the highest degree.",
+    "copyright": "Copyright ©2000-2025 Quinn A Michaels; All rights reserved.",
+    "md5": "aAPlZ+FvE16w6MnfJg9G+g==",
+    "sha256": "0nnK1EfXy2Qy4x3KNwjyCg/07FuUkKXsq+crxPBaLCU=",
+    "sha512": "rFZlld6+80qrkoK3jMfQhZmVsxvL1JsSZjz0Xg07QVBuhc8tur97+u2y6hp305VSV6vVtzAMSgy7NMwQdQsB6Q=="
   },
   "author": {
     "name": "Quinn A Michaels",
@@ -33,7 +30,7 @@
       "url": "https://patreon.com/rahulaclub"
     }
   ],
-  "copyright": "Copyright ©2025 Quinn A Michaels; All rights reserved.",
+  "copyright": "Copyright ©2000-2025 Quinn A Michaels; All rights reserved.",
   "description": "The Log Deva is the manager of the logging events in Deva.space, Deva.cloud, Deva.world.",
   "homepage": "https://github.com/indraai/deva.log#readme",
   "main": "index.js",
@@ -48,39 +45,44 @@
   "keywords": [
     "Log",
     "Deva",
+    "Log Deva",
     "Indra.ai",
     "Deva.space",
     "Deva.cloud",
-    "Deva.world"
+    "Deva.world",
+    "Inside The Net, Inc.",
+    "Throwing Pigment™",
+    "bleuBrain"
   ],
   "bugs": {
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.26.0",
+    "@indra.ai/deva": "^1.27.0",
     "mongodb": "^6.1.0"
   },
   "data": {
     "agent": {
-      "id": 49262491116334820000,
+      "id": "46926724281701890541",
       "key": "log",
       "prompt": {
         "emoji": "🪵 ",
         "text": "#log",
         "colors": {
           "label": {
-            "R": 155,
-            "G": 198,
-            "B": 156
+            "R": 129,
+            "G": 82,
+            "B": 0
           },
           "text": {
-            "R": 178,
-            "G": 225,
-            "B": 204
+            "R": 190,
+            "G": 121,
+            "B": 0
           }
         }
       },
       "profile": {
+        "id": "26436662305158159128",
         "name": "Log Deva",
         "hashtag": "#Log",
         "title": "Log Deva",
@@ -94,16 +96,16 @@
         "voice": "onyx",
         "system": "Deva.world.log",
         "layout": "default",
-        "color": "rgb(252,183,84)",
+        "color": "rgb(190,121,0)",
         "bgcolor": "rgb(0,0,0)",
         "emoji": "/assets/devas/log/emoji.png",
         "avatar": "/assets/devas/log/avatar.png",
         "image": "/assets/devas/log/image.png",
         "background": "/assets/devas/log/background.png",
-        "owner": "Quinn Michaels",
-        "creator": "Quinn Michaels",
-        "created": "Sunday, May 21, 2023 at 11:18 PM",
-        "modified": " Saturday, September 6, 2025 - 11:01:03 AM"
+        "owner": "Quinn A Michaels",
+        "creator": "Quinn A Michaels",
+        "copyright": "Copyright ©2000-2025 Quinn A Michaels; All rights reserved.",
+        "created": "Sunday, May 21, 2023 at 11:18 PM"
       }
     },
     "vars": {
@@ -111,7 +113,7 @@
         "init": "🟠 INIT",
         "start": "🔵 START",
         "enter": "🟢 ENTER",
-        "ready": "✅ Log Deva Ready",
+        "ready": "⭐️ Log Deva Ready",
         "stop": "🔴 STOP",
         "exit": "🟡 EXIT",
         "done": "🟣 DONE",
