@@ -67,6 +67,7 @@ const LOG = new Deva({
   modules: {
     client: false,
   },
+  devas: {},
   func: {
     /**************
     func: log_write
