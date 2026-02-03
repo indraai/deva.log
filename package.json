@@ -34,6 +34,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "latest": "npm i @indra.ai/deva@latest --save",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -56,7 +57,7 @@
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.32.0",
+    "@indra.ai/deva": "^1.33.0",
     "mongodb": "^6.1.0"
   },
   "data": {
@@ -85,7 +86,7 @@
         "hashtag": "#LogDeva",
         "title": "Log Deva",
         "subtitle": "Log manage in Deva.world",
-        "describe": "Log Deva manages the logs in Deva.world.",
+        "describe": "{{profile.name}} manages the logs in Indra.ai Deva.world. Regardless of Agent or Client interaction {{profile.name}} ensures that all interactions and events are properly logged to an independent logging database set in the logging layer. {{profile.name}} can then access, organize, report, and delivery archive data or event logs in real time with simple method:property requests.",
         "tweet": "Log Deva manages the logs in Deva.world.",
         "hashtags": "#Quinn #QuinnMichaels #InsideTheNet #IndraAI #DevaWorld #Log #LogDeva #LogPRIME",
         "pronouns": "He, Him, His",
