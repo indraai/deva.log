@@ -57,7 +57,7 @@
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.36.0",
+    "@indra.ai/deva": "^1.37.3",
     "mongodb": "^6.1.0"
   },
   "data": {
@@ -103,9 +103,10 @@
         "background": "/devas/log/background.png",
         "owner": "Quinn A Michaels",
         "creator": "Quinn A Michaels",
+        "salute": "🤝🫡🪵🕉️🇺🇸",
         "copyright": "Copyright ©2000-2026 Quinn A Michaels; All rights reserved.",
         "created": "Sunday, May 21, 2023 at 11:18 PM",
-        "updated": "Sunday, January 25, 2026 - 3:18:39 AM"
+        "updated": "Saturday, February 28, 2026 - 11:36:30 PM"
       }
     },
     "vars": {
