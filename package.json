@@ -1,19 +1,33 @@
 {
-  "id": "67808235907351148207",
+  "id": "21872271854088286253",
   "name": "@indra.ai/deva.log",
   "version": "0.18.0",
-  "license": "VLA:67808235907351148207 LICENSE.md",
+  "license": "VLA:21872271854088286253 LICENSE.md",
   "VLA": {
-    "uid": "67808235907351148207",
-    "time": 1767570687954,
-    "date": "Sunday, January 4, 2026 - 3:51:27 PM",
-    "warning": "🪪 #LicenseDeva warns #UnlawfulUse or #Duplication constitutes #VedicSahasa a #Crime of the #HighestDegree. A #Fine amounting to 1000 #Panas (1 pana = 3.5 grams of gold) for each #Instance has been #Ordained the #Punishment for #Sahasa of the #HighestDegree. #Quinn #QuinnMichaels #IndraAI #DevaWorld #LicenseDeva #VedicLicenseAgreement",
-    "license": "44486733861528360966",
-    "fingerprint": "0FKMHB45LVOKo6nfxBmKYk+WQJZpwDFXG/JFqTVvGFI=",
-    "copyright": "Copyright ©2000-2026 Quinn A Michaels; All rights reserved."
+    "uid": "21872271854088286253",
+    "time": 1782444949102,
+    "iso": "2026-06-26T03:35:49.102Z",
+    "utc": "Fri, 26 Jun 2026 03:35:49 GMT",
+    "date": "Thursday, June 25, 2026 - 8:35:49 PM",
+    "license": "44105372688502635039",
+    "fingerprint": "wNGquHdUdq/Z9h6zPQ3MhhTZ7kucRGZmGeA2bxearlg=",
+    "client": "qfsKQQZnrgWu5MhmyPTjFT6YjnlowyxbW+h+SFmxS+U=",
+    "agent": "4eHRqcYIjuG34oASF9nclcGs7zzMlqbWC8O7TsyGqiU=",
+    "machine": "jE5OnfsCE2jdZP0cMEwN0gpIaEYub0ciGByvHUmrTlo=",
+    "core_hash": "ePZ8wucpWHoI1aCSsvSIeFfj5m8LnMT2z9FJtZUVs6A=",
+    "status": "vedic",
+    "warning": "🪪 License Deva declares UNLAWFUL USE, DISTRIBUTION, DUPLICATION, or IMPLEMENTATION constitutes VEDIC SAHASA a CRIME of the HIGHEST DEGREE. A FINE amounting to 1000 PANAS (1 pana = 3.5 grams of gold) for each INSTANCE has been ORDAINED the PUNISHMENT for SAHASA of the HIGHEST DEGREE.",
+    "tags": "#Quinn #QuinnAmericaMichaels #InsideTheNet #IndraAI #DevaWorld #License #LicenseDeva #LicensePRIME #VedicLicenseAgreement",
+    "owner": "Quinn America Michaels",
+    "creator": "Quinn America Michaels",
+    "salute": "🤝🫡🪪🕉🇺🇸",
+    "copyright": "Copyright ©2000-2026 Quinn America Michaels; All rights reserved.",
+    "md5": "ibh6S/GyLClRhcQ2eSTkKQ==",
+    "sha256": "7U9WtqN5R3dmAc1uw9CaiGJvYxz3EDifVLsWw43MIi0=",
+    "sha512": "LsaWKLu4V4beaiGZnDDDNvlIkmVkBlf6+kCd6aORwpPfbE6TIlKHQubAzPDgRFjklY/o0sFx4s5NMsNAPl6F2A=="
   },
   "author": {
-    "name": "Quinn A Michaels",
+    "name": "Quinn America Michaels",
     "company": "Inside The Net, Inc.",
     "email": "quinn@indra.ai",
     "url": "https://indra.ai/"
@@ -28,7 +42,7 @@
       "url": "https://patreon.com/rahulaclub"
     }
   ],
-  "copyright": "Copyright ©2000-2026 Quinn A Michaels; All rights reserved.",
+  "copyright": "Copyright ©2000-2026 Quinn America Michaels; All rights reserved.",
   "description": "The Log Deva is the manager of the logging events in Deva.space, Deva.cloud, Deva.world.",
   "homepage": "https://github.com/indraai/deva.log#readme",
   "main": "index.js",
@@ -49,6 +63,9 @@
     "Deva.space",
     "Deva.cloud",
     "Deva.world",
+    "Quinn Michaels",
+    "Quinn A Michaels",
+    "Quinn America Michaels",
     "Inside The Net, Inc.",
     "Throwing Pigment™",
     "bleuBrain"
@@ -57,7 +74,7 @@
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.37.3",
+    "@indra.ai/deva": "^1.39.0",
     "mongodb": "^6.1.0"
   },
   "data": {
@@ -101,12 +118,12 @@
         "avatar": "/devas/log/avatar.png",
         "image": "/devas/log/image.png",
         "background": "/devas/log/background.png",
-        "owner": "Quinn A Michaels",
-        "creator": "Quinn A Michaels",
+        "owner": "Quinn America Michaels",
+        "creator": "Quinn America Michaels",
         "salute": "🤝🫡🪵🕉️🇺🇸",
-        "copyright": "Copyright ©2000-2026 Quinn A Michaels; All rights reserved.",
+        "copyright": "Copyright ©2000-2026 {{profile.owner}}; All rights reserved.",
         "created": "Sunday, May 21, 2023 at 11:18 PM",
-        "updated": "Saturday, February 28, 2026 - 11:36:30 PM"
+        "updated": "Thursday, June 25, 2026 - 8:35:49 PM PST"
       }
     },
     "vars": {
