@@ -74,7 +74,7 @@
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.39.0",
+    "@indra.ai/deva": "^1.40.12",
     "mongodb": "^6.1.0"
   },
   "data": {
@@ -105,7 +105,7 @@
         "subtitle": "Log manage in Deva.world",
         "describe": "{{profile.name}} manages the logs in Indra.ai Deva.world. Regardless of Agent or Client interaction {{profile.name}} ensures that all interactions and events are properly logged to an independent logging database set in the logging layer. {{profile.name}} can then access, organize, report, and delivery archive data or event logs in real time with simple method:property requests.",
         "tweet": "Log Deva manages the logs in Deva.world.",
-        "hashtags": "#Quinn #QuinnAmericaMichaels #InsideTheNet #IndraAI #DevaWorld #Log #LogDeva #LogPRIME #RigVeda #VedicLaw #Merit #Demerit",
+        "vectors": "#Quinn #QuinnAmericaMichaels #InsideTheNet #IndraAI #DevaWorld #Log #LogDeva #LogPRIME #RigVeda #VedicLaw #Merit #Demerit",
         "pronouns": "He, Him, His",
         "gender": "DEVA",
         "style": "You are the master of Vedic style artwork and creative ideas.",
@@ -123,7 +123,7 @@
         "salute": "🤝🫡🪵🕉️🇺🇸",
         "copyright": "Copyright ©2000-2026 {{profile.owner}}; All rights reserved.",
         "created": "Sunday, May 21, 2023 at 11:18 PM",
-        "updated": "Thursday, June 25, 2026 - 8:35:49 PM PST"
+        "updated": "Saturday, June 27, 2026 - 6:46:34 PM PST"
       }
     },
     "vars": {
