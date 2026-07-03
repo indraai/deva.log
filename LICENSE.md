@@ -1,19 +1,19 @@
 # Vedic License Agreement
 
 **Version:** 1.4.1  
-**VLA:** 21872271854088286253  
-**Effective:** Thursday, June 25, 2026 - 8:35:49 PM PST  
-**Owner:** Quinn America Michaels  
+**VLA:** 72899545937707239967  
+**Effective:** Friday, July 3, 2026 - 2:06:53 PM PST  
+**Owner:** Quinn Arjuna Michaels  
 **Company:** Inside The Net, Inc.  
 **Email:** quinn@indra.ai  
 **Link:** https://indra.ai  
-**Copyright:** Copyright ©2000-2026 Quinn America Michaels; All rights reserved.
+**Copyright:** Copyright ©2000-2026 Quinn Arjuna Michaels; All rights reserved.
 
 This license agreement (“Agreement”) governs the use of the Log Deva (“Software”). By accessing or using the Software, you agree to the terms and conditions set forth below. If you do not agree, you are prohibited from using the Software.
 
 ## Ownership
 
-Software is the sole proprietary property of Quinn A Michaels (“Owner”). All rights, title, and interest in the Software, including any modifications, derivatives, or enhancements, are retained by the Owner.
+Software is the sole proprietary property of Quinn Arjuna Michaels (“Owner”). All rights, title, and interest in the Software, including any modifications, derivatives, or enhancements, are retained by the Owner.
 
 **Vedic Laws:**
 
@@ -24,7 +24,7 @@ Software is the sole proprietary property of Quinn A Michaels (“Owner”). All
 
 ## Grant of License
 
-Use of the Software is subject to a threefold hierarchy of law and cannot be lawfully undertaken outside it. First, Vedic Law governs as the supreme spiritual and religious authority, defining right action, rightful ownership, and the measure of fines and consequences. Second, the Constitution of the United States establishes the secular legal framework that guarantees the free exercise of religion, ensures due process, and mandates enforcement through federal agencies such as the IRS and FBI for matters of taxation, fraud, and criminal liability. Third, Owner Authority rests with Quinn A Michaels as the sole proprietor and Brahmana under Vedic Law, whose signature and consent are required for any valid license. All three levels must be satisfied; violation of any one constitutes unlawful use.
+Use of the Software is subject to a threefold hierarchy of law and cannot be lawfully undertaken outside it. First, Vedic Law governs as the supreme spiritual and religious authority, defining right action, rightful ownership, and the measure of fines and consequences. Second, the Constitution of the United States establishes the secular legal framework that guarantees the free exercise of religion, ensures due process, and mandates enforcement through federal agencies such as the IRS and FBI for matters of taxation, fraud, and criminal liability. Third, Owner Authority rests with Quinn Arjuna Michaels as the sole proprietor and Brahmana under Vedic Law, whose signature and consent are required for any valid license. All three levels must be satisfied; violation of any one constitutes unlawful use.
 
 **Vedic Laws:** 
 
@@ -149,7 +149,7 @@ When the thieves are not caught, the king/government must make good the loss fro
 
 ## Export and Jurisdiction Restrictions
 
-Use of the Software outside the jurisdiction of the United States of America is strictly forbidden. The Owner, Quinn A Michaels, does not authorize, consent to, or license the export, transfer, or use of this Software or any derivative works to or by any foreign nation, entity, government, corporation, or individual.
+Use of the Software outside the jurisdiction of the United States of America is strictly forbidden. The Owner, Quinn Arjuna Michaels, does not authorize, consent to, or license the export, transfer, or use of this Software or any derivative works to or by any foreign nation, entity, government, corporation, or individual.
 
 All rights of use are confined exclusively within the territory of the United States of America and subject to its Constitutional protections and laws, in conjunction with Religious Vedic Law as recognized by the Owner. Any attempt to utilize, deploy, or distribute this Software outside U.S. jurisdiction constitutes unauthorized use under this Agreement and shall trigger enforcement actions including immediate revocation, fines under Vedic Law, and referral to appropriate U.S. federal authorities for violations of export controls, intellectual property laws, and national security protections.
 
@@ -161,43 +161,24 @@ By using the Software, you acknowledge that you have read, understood, and agree
 
 ---
 
-::begin:license:uid:18508198527557914092  
-uid: 18508198527557914092  
-time: 1763833209016  
-date: Saturday, November 22, 2025 - 9:40:09 AM  
-warning: ⚠️ Unlawful use or duplication of this uid constitutes Vedic Sâhasa a crime of the highest degree. A fine amounting to a thousand Panas (1 pana = 3.5 grams of gold) for each instance is ordained, and confiscation of the entire property of the offenders is forfeit to Quinn A Michaels is declared to be the punishment for Sâhasa of the highest degree.  
-license: 46220923248993739422  
-fingerprint: tgXhy+uyqgHoszG/ZSAqVboodjdQcrCbt619/9R6h6c=  
-copyright: Copyright ©2000-2025 Quinn A Michaels; All rights reserved.  
-::end:license:uid:18508198527557914092  
-
-::begin:license:uid:67808235907351148207  
-uid: 67808235907351148207  
-time: 1767570687954  
-date: Sunday, January 4, 2026 - 3:51:27 PM  
-warning: 🪪 #LicenseDeva warns #UnlawfulUse or #Duplication constitutes #VedicSahasa a #Crime of the #HighestDegree. A #Fine amounting to 1000 #Panas (1 pana = 3.5 grams of gold) for each #Instance has been #Ordained the #Punishment for #Sahasa of the #HighestDegree. #Quinn #QuinnMichaels #IndraAI #DevaWorld #LicenseDeva #VedicLicenseAgreement  
-license: 44486733861528360966  
-fingerprint: 0FKMHB45LVOKo6nfxBmKYk+WQJZpwDFXG/JFqTVvGFI=  
-copyright: Copyright ©2000-2026 Quinn A Michaels; All rights reserved.  
-::end:license:uid:67808235907351148207
-
-::begin:license:uid:21872271854088286253  
-uid: 21872271854088286253  
-time: 1782444949102  
-utc: Fri, 26 Jun 2026 03:35:49 GMT  
-iso: 2026-06-26T03:35:49.102Z  
-date: Thursday, June 25, 2026 - 8:35:49 PM  
-warning: 🪪 License Deva declares UNLAWFUL USE, DISTRIBUTION, DUPLICATION, or IMPLEMENTATION constitutes VEDIC SAHASA a CRIME of the HIGHEST DEGREE. A FINE amounting to 1000 PANAS (1 pana = 3.5 grams of gold) for each INSTANCE has been ORDAINED the PUNISHMENT for SAHASA of the HIGHEST DEGREE.  
-vectors: #Quinn #QuinnAmericaMichaels #InsideTheNet #IndraAI #DevaWorld #License #LicenseDeva #LicensePRIME #VedicLicenseAgreement  
+::begin:om:license:uid:72899545937707239967  
+uid: 72899545937707239967  
+time: 1783112813816  
+utc: Fri, 03 Jul 2026 21:06:53 GMT  
+iso: 2026-07-03T21:06:53.816Z  
+date: Friday, July 3, 2026 - 2:06:53 PM  
+warning: 🪪 License Deva declares UNLAWFUL USE, MODIFICATION, INSTALLATION, DUPLICATION, DISTRIBUTION, INTERACTION, or IMPLEMENTATION constitutes VEDIC SAHASA a CRIME of the HIGHEST DEGREE. A FINE amounting to 1000 PANAS (1 pana = 3.5 grams of gold) for each INSTANCE has been ORDAINED the PUNISHMENT for SAHASA of the HIGHEST DEGREE.  
+notice: Any USE or INTERACTION with License Deva constitutes EXPLICIT CONSENT and AGREEMENT to be RULED and GOVERNED ACCORDING to the LAWS of the VEDIC RELIGION.  
+vectors: #Quinn #QuinnArjunaMichaels #InsideTheNet #IndraAI #DevaWorld #License #LicenseDeva #LicensePRIME #VedicLicenseAgreement  
 agent: License Deva (He, Him, His)  
-client: Quinn America Michaels (He, Him, His, Man, Dude)  
-creator: Quinn America Michaels  
-owner: Quinn America Michaels  
-salute: 🤝🫡🪪🕉🇺🇸  
-license: 44105372688502635039  
-fingerprint: wNGquHdUdq/Z9h6zPQ3MhhTZ7kucRGZmGeA2bxearlg=  
-copyright: Copyright ©2000-2026 Quinn America Michaels; All rights reserved.  
-md5: ibh6S/GyLClRhcQ2eSTkKQ==  
-sha256: 7U9WtqN5R3dmAc1uw9CaiGJvYxz3EDifVLsWw43MIi0=  
-sha512: LsaWKLu4V4beaiGZnDDDNvlIkmVkBlf6+kCd6aORwpPfbE6TIlKHQubAzPDgRFjklY/o0sFx4s5NMsNAPl6F2A==  
-::end:license:uid:21872271854088286253
+client: Quinn Arjuna Michaels (He, Him, His, Man, Dude)  
+creator: Quinn Arjuna Michaels  
+owner: Quinn Arjuna Michaels  
+salute: 🤝🫡🪪🕉  
+license: 51112406344245827002  
+fingerprint: UDS8l75O65YN9eqUi+9NNMBeV7xVZ5HWkA2bDOQinrw=  
+copyright: Copyright ©2000-2026 Quinn Arjuna Michaels; All rights reserved.  
+md5: peFTtzmY5Qu9+lrfmVdEmg==  
+sha256: lE5YG5flZAHJHnfN8AQwa+kYKoJj1gA/4ZYuCOIJ5kU=  
+sha512: +sux6Qius/bT1xhIQQBZI+NwPo8atrrg0kWK8ATPcVDZgaIvSNz7X/pUZxMuQxEVQkKh14ubm1AhcNnjru0xRQ==  
+::end:om:license:uid:72899545937707239967
