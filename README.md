@@ -2,7 +2,7 @@
 
 This is the README file for Log Deva, a component of the Deva system.
 
-Log Deva is a component of the Deva system designed to handle logging and event tracking. It provides functionalities for logging various events and actions within the Deva ecosystem. With Log Deva, you can easily track and monitor the activity and progress of your Deva agents. It offers listeners for question, ask, and answer events, allowing you to capture and log important information. Log Deva also includes methods and functions for generating unique IDs, retrieving status information, and accessing help documentation. Choose Log Deva for efficient and comprehensive event logging in your Deva projects.
+Log Deva is a component of the Deva system designed to handle logging and event tracking. It provides functionalities for logging various events and actions within the Deva ecosystem. With Log Deva, you can easily track and monitor the activity and progress of your Deva agents. It offers listeners for question, ask, and answer events, allowing you to capture and log important information.
 
 ## Overview
 Log Deva is designed to handle logging and event tracking within the Deva ecosystem. It provides functionalities for logging various events and actions that occur within the system.
