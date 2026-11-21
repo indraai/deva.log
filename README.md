@@ -40,7 +40,30 @@ Log Deva reads two features from the client you pass to `init()`. The feature da
 		"concerns": [],
 		"global": [],
 		"devas": {
-			"log": {"uid": "50322929256393520124"}
+			"log": {
+				"uid": "50322929256393520124",
+				"time": 1795221712972,
+				"iso": "2026-11-21T00:41:52.972Z",
+				"utc": "Sat, 21 Nov 2026 00:41:52 GMT",
+				"date": "Friday, November 20, 2026 - 4:41:52 PM",
+				"license": "34948472480559228528",
+				"fingerprint": "HWA3wRnWj6us9+DFsK9JK3LP2R250C4iS7puNa+WMRY=",
+				"client": "27l9CQgHobrMikrhkiVH3N6A2GYIwOT/TBGhygYgf5k=",
+				"agent": "nJCa4yJAQOLtusCoXpoJVQa2S+xlRmvhM8sH6OGitmU=",
+				"machine": "DBbSJYoWSzinxR+Kc/RVauFEWkhuAR7uNc1TFUwGIHw=",
+				"core_hash": "1kUD+ES1UUYRhyVI1ZBpfQt/fZit44Z8/H1UkYAEnnw=",
+				"status": "vedic",
+				"warning": "⚡️ Deva declares UNLAWFUL USE, MODIFICATION, INSTALLATION, DUPLICATION, DISTRIBUTION, INTERACTION, or IMPLEMENTATION constitutes VEDIC SAHASA a CRIME of the HIGHEST DEGREE. A FINE amounting to 1000 PANAS (1 pana = 3.5 grams of gold) for each INSTANCE has been ORDAINED the PUNISHMENT for SAHASA of the HIGHEST DEGREE.",
+				"notice": "Any USE or INTERACTION with Deva constitutes YOUR EXPLICIT CONSENT and AGREEMENT to be GOVERNED according to the LAWS of the 🕉VEDIC RELIGION and 🇺🇸THE UNITED STATES OF AMERICA.",
+				"vectors": "#Quinn #QuinnMichaels #InsideTheNet #IndraAI #DEVA #DevaWorld #License #LicenseDeva #VedicLicenseAgreement",
+				"owner": "Quinn Michaels",
+				"creator": "Quinn Michaels",
+				"salute": "🤝🫡🪪🕉🇺🇸",
+				"copyright": "Copyright ©2000-2026 Quinn Michaels; All rights reserved.",
+				"md5": "PjS0ZaNpEd1ab5PH7J9VGg==",
+				"sha256": "KaYxC/Bo6jx1emFDy19SW8/4GDoJH0yZgIreUipc/+k=",
+				"sha512": "etdDlGM2j69Fv493+AMrLDWMQ1LjXE7LqIBeBz/Ji5HVa3kpjYc5Z4Rb4CWOSgeb0dIaAgWsiUuXouETW9w0zg=="
+			}
 		}
 	},
 	"log": {
