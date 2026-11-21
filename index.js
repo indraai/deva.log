@@ -1,9 +1,9 @@
 "use strict";
 // Log Deva
-// Copyright ©2000-2025 Quinn Arjuna Michaels; All rights reserved. 
-// Owner Signature Required For Lawful Use.
-// Distributed under VLA:62880504107552408888 LICENSE.md
-// Friday, July 3, 2026 - 8:27:21 PM PST
+// Copyright ©2000-2026 Quinn Michaels; All rights reserved.  
+// Owner Signature Required For Lawful Use.  
+// Distributed under VLA:50322929256393520124 LICENSE.md  
+// Friday, November 20, 2026 - 4:41:52 PM PST
 
 import Deva from '@indra.ai/deva';
 import {MongoClient} from 'mongodb';
@@ -102,14 +102,6 @@ const LogDeva = new Deva({
       });
     }
   },
-  onInit(data, resolve) {
-    const {personal} = this.license(); // get the license config
-    const agent_license = this.info().VLA; // get agent license
-    const license_check = this.license_check(personal, agent_license); // check license
-    // return this.start if license_check passes otherwise stop.
-    this.action('return', `onInit:${data.id.uid}`);
-    return license_check ? this.start(data, resolve) : this.stop(data, resolve);
-  }, 
   onReady(data, resolve) {
     const {VLA} = this.info();
 
