@@ -83,17 +83,7 @@ const LogDeva = new Deva({
     },
 
   },
-  methods: {
-    log(packet) {
-      return new Promise((resolve, reject) => {
-        try {
-          return resolve({})
-        } catch (err) {
-          return this.error(err, packet, reject);
-        }
-      });
-    }
-  },
+  methods: {},
   onReady(data, resolve) {
     const {uri,database} = this.log().global?.mongo || {};
     const {VLA} = this.info();

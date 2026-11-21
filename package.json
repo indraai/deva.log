@@ -74,7 +74,7 @@
     "url": "https://github.com/indraai/deva.log/issues"
   },
   "dependencies": {
-    "@indra.ai/deva": "^1.67.7",
+    "@indra.ai/deva": "^1.67.8",
     "mongodb": "^6.1.0"
   },
   "data": {
@@ -136,12 +136,6 @@
         "exit": "🟡 EXIT",
         "done": "🟣 DONE",
         "error": "💣 ERROR!"
-      },
-      "relay": "clirelay",
-      "actions": {
-        "log_question": "question",
-        "log_answer": "answer",
-        "log_ask": "ask"
       },
       "ask": {
         "history": []
