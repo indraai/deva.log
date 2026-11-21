@@ -51,14 +51,6 @@ const LogDeva = new Deva({
     'devacore:ask'(packet) {
       this.func.log_write('ask', this.lib.copy(packet));
     },
-    // log the answer on finish
-    'devacore:finish'(packet) {
-      this.func.log_write('finish', this.lib.copy(packet));
-    },
-    // log the answer on complete
-    'devacore:complete'(packet) {
-      this.func.log_write('complete', this.lib.copy(packet));
-    },
     // log all errors
     'devacore:error'(packet) {
       this.func.log_write('error', this.lib.copy(packet));
