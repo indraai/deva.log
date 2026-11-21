@@ -95,7 +95,7 @@ const LogDeva = new Deva({
     }
   },
   onReady(data, resolve) {
-    const {uri,database} = this.error().global?.mongo || {};
+    const {uri,database} = this.log().global?.mongo || {};
     const {VLA} = this.info();
     if (uri) this.modules.client = new MongoClient(uri); // build the client if uri is set
     this.vars.database = database;
