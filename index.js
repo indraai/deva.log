@@ -95,24 +95,17 @@ const LogDeva = new Deva({
     }
   },
   onReady(data, resolve) {
+    const {uri,database} = this.error().global?.mongo || {};
     const {VLA} = this.info();
-
-    this.state('get', `mongo:global:${data.id.uid}`);
-    const {uri,database} = this.log().global.mongo;
-    this.state('set', `mongo:client:${data.id.uid}`);
-    this.modules.client = new MongoClient(uri);
-    this.state('set', `mongo:database:${data.id.uid}`);
+    if (uri) this.modules.client = new MongoClient(uri); // build the client if uri is set
     this.vars.database = database;
-
     this.prompt(`${this.vars.messages.ready} > VLA:${VLA.uid}`);
-
-    this.action('resolve', `onReady:${data.id.uid}`);
     return resolve(data);
   },
   onError(err, data, reject) {
     this.prompt(this.vars.messages.error);
-    this.action('reject', `onError:${data.id.uid}`);
-    return reject(err);
+    console.log(err);
+    return reject ? reject(err) : Promise.reject(err);
   }
 });
 export default LogDeva
