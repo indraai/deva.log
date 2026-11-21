@@ -71,6 +71,7 @@ const LogDeva = new Deva({
       const created = Date.now();
       const theDate = new Date(created);
       let result = false;
+      if (!this.modules.client) return result; // no database configured
       try {
         const database = this.modules.client.db(this.vars.database);
         const collection = database.collection(type);
@@ -91,6 +92,11 @@ const LogDeva = new Deva({
     this.vars.database = database;
     this.prompt(`${this.vars.messages.ready} > VLA:${VLA.uid}`);
     return resolve(data);
+  },
+  onStop(data, resolve) {
+    const {client} = this.modules;
+    if (!client) return this.close(data, resolve);
+    return client.close().then(() => this.close(data, resolve)); // close the database before shutdown
   },
   onError(err, data, reject) {
     this.prompt(this.vars.messages.error);

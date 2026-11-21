@@ -7,50 +7,189 @@ Log Deva is a component of the Deva system designed to handle logging and event 
 ## Overview
 Log Deva is designed to handle logging and event tracking within the Deva ecosystem. It provides functionalities for logging various events and actions that occur within the system.
 
-## Installation
-To install Log Deva, you can use npm:
+install: `npm i @indra.ai/deva.log --save`
 
-```
-npm install @indra.ai/logdeva
-```
-
-## Usage
-To use Log Deva, you can import it into your project:
-
-```javascript
-const LogDeva = require('@indra.ai/logdeva');
+usage: 
+```js
+import log from '@indra.ai/deva.log';
 ```
 
-### Variables
-- `relay`: The `relay` variable holds the event name for the relay to the CLI.
+## Requirements
 
-### Listeners
-- `devacore:state`: The core listener for state events.
-- `devacore:action`: The core listener for action events.
-- `devacore:question`: The core listener for question events.
-- `devacore:answer`: The core listener for answer events.
-- `devacore:error`: The core listener for error events.
+- Node.js with npm. Log Deva's `package.json` sets no `engines`. Deva Core 1.67.8 declares `"node": ">=22"` and `"npm": ">=9.5.1"` in its own `package.json`.
+- A project with `"type": "module"` in its `package.json`. Log Deva is an ES module.
+- `@indra.ai/deva` `^1.67.8` (Deva Core) and `mongodb` `^6.1.0`. Both install with Log Deva.
+- A MongoDB server if you want the logs saved. A local `mongod` at `mongodb://127.0.0.1:27017` is enough.
 
-### Functions
-Functions are local functionalities specific to Log Deva that can be used in listeners and methods.
+## Two licenses
 
-- `this.func.log_action(packet)`: Logs an action event.
-- `this.func.log_state(packet)`: Logs a state event.
-- `this.func.log_question(packet)`: Logs a question event.
-- `this.func.log_answer(packet)`: Logs an answer event.
-- `this.func.log_write(packet)`: Logs a write event.
+A running Deva carries two separate licenses, and each is checked on its own.
 
-### Methods
-Methods are exposed as commands for Log Deva and other Deva components to use.
+- **The core license** comes through the client data as `client.VLA`. Deva Core checks it against the core package's VLA at the start of `init`.
+- **The agent license** comes through the license feature data as `features.license.devas.log`. Deva Core 1.67.8 checks it against the VLA in Log Deva's own `package.json` right after the features load and before `onInit`. Log Deva has no `onInit` of its own, so it has no license check of its own to change or remove.
 
-- `$ #logdeva uid`: Generates a unique ID from Log Deva.
-- `$ #logdeva status`: Returns the status of Log Deva.
-- `$ #logdeva help`: Provides help for using Log Deva.
+The agent check compares the sha256 of the whole VLA object, so every field has to match exactly.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Configuration
 
----
+Log Deva reads two features from the client you pass to `init()`. The feature data loader puts them in the client, and Deva Core loads them into the Deva at startup, so both must be there before `init()` runs.
+
+```json
+"features": {
+	"license": {
+		"concerns": [],
+		"global": [],
+		"devas": {
+			"log": {"uid": "50322929256393520124"}
+		}
+	},
+	"log": {
+		"concerns": [],
+		"global": {
+			"mongo": {
+				"uri": "mongodb://127.0.0.1:27017",
+				"database": "LogDeva"
+			}
+		},
+		"devas": {}
+	}
+}
+```
+
+- `license.devas.log` is the agent VLA. The short form above only shows where it goes. It must be the full `VLA` object from this package's `package.json`, for example:
+
+```js
+import pkg from '@indra.ai/deva.log/package.json' with {type:'json'};
+
+const devas = {log: pkg.VLA}; // goes in features.license.devas
+```
+
+- `log.global.mongo.uri` is the MongoDB connection string. If it is not set, Log Deva still comes online but builds no MongoDB client, and nothing is saved.
+- `log.global.mongo.database` is the database Log Deva writes to.
+
+## Load it
+
+```js
+import LogDeva from '@indra.ai/deva.log';
+
+const data = await LogDeva.init(client); // client data provided by your loader
+console.log(data.id.uid);
+```
+
+When the license checks pass, Log Deva walks start, enter, done and ready. In `onReady` it reads `this.log().global?.mongo`, builds a `MongoClient` in `this.modules.client` when `uri` is set, keeps `database` in `this.vars.database`, and prompts `🪵 Log Deva Ready > VLA:50322929256393520124`.
+
+Log Deva listens on its own event bus. When it is loaded as a child Deva, Deva Core gives it the parent's event bus, so it hears the questions, answers, asks and errors of every Deva on that bus.
+
+To shut it down:
+
+```js
+await LogDeva.stop();
+```
+
+`onStop` closes the MongoDB client, if there is one, before Deva Core finishes the stop chain.
+
+## When Log Deva refuses to start
+
+If the agent license check fails, Deva Core prompts the message, stops the Deva, and `init()` resolves with that message.
+
+| You see | Why |
+| --- | --- |
+| `❌ Bad Personal VLA` | `features.license.devas` is there but has no `log` entry. |
+| `❌ Invalid VLA Check` | The `log` entry doesn't match this package's VLA, or the license feature has no `devas`. |
+
+A stopped Deva stays stopped. Calling `init()` again on it answers `⭕️ OFFLINE`. To try again, start a new process.
+
+## What it logs
+
+Log Deva has four listeners. Each copies the packet it hears and hands it to `log_write`, which saves it to the collection of the same name.
+
+| Event | Collection | What is saved |
+| --- | --- | --- |
+| `devacore:question` | `question` | The question packet, with its `q` built and stamped, from every `question()` call. |
+| `devacore:answer` | `answer` | The packet with both `q` and the stamped `a`, from every answer. |
+| `devacore:ask` | `ask` | The answer that comes back when one Deva asks another with `#key method`. |
+| `devacore:error` | `error` | The error record Deva Core builds in `this.err()`: the error's name, message and stack, the agent, the client, the packet that failed, and the md5, sha256 and sha512 hashes. |
+
+The listeners don't wait on the insert, so a slow database never holds up a question or an answer.
+
+If there is no MongoDB client, `log_write` returns `false` without writing. If the insert fails, it logs the failure with `console.error` and returns `false`, so a failure in the log writer never starts a new error loop.
+
+When Log Deva itself errors, its `onError` prompts `💣 ERROR!`, logs the error to the console, and rejects with the original error.
+
+## Inside Log Deva
+
+| Name | Kind | What it does |
+| --- | --- | --- |
+| `devacore:question` | listener | Calls `this.func.log_write('question', packet)`. |
+| `devacore:answer` | listener | Calls `this.func.log_write('answer', packet)`. |
+| `devacore:ask` | listener | Calls `this.func.log_write('ask', packet)`. |
+| `devacore:error` | listener | Calls `this.func.log_write('error', packet)`. |
+| `log_write(type, packet)` | func | Inserts `packet` into the `type` collection of `this.vars.database`. Returns the insert result, or `false` with no client or on failure. |
+| `translate`, `parse`, `process` | utils | Each returns its input trimmed. |
+| `onReady` | lifecycle | Builds the MongoDB client from the log feature data and prompts the ready message. |
+| `onStop` | lifecycle | Closes the MongoDB client, then calls `this.close(data, resolve)`. |
+| `onError` | lifecycle | Prompts the error message, logs the error, and returns `reject(err)` or `Promise.reject(err)`. |
+| `modules.client` | module | The `MongoClient`, set in `onReady` when a `uri` is given. |
+
+`methods` and `devas` are empty.
+
+The `vars` in `package.json` hold:
+
+- `messages`: the prompt text for `init`, `start`, `enter`, `ready`, `stop`, `exit`, `done` and `error`.
+- `ask`: settings carried in the agent data.
+- `context`: empty.
+
+`this.vars.database` is set in `onReady` from the log feature data.
+
+## Testing
+
+Start a local MongoDB, then run:
+
+```bash
+npm test
+```
+
+`npm test` runs `node --test`. The tests use `mongodb://127.0.0.1:27017` by default. To use another server, set `MONGO_URI`:
+
+```bash
+MONGO_URI="mongodb://127.0.0.1:27018" npm test
+```
+
+The tests always write to their own database, `deva_log_test`, and drop it when they finish. Only the server can change, so the cleanup never touches another database. If MongoDB can't be reached, the five MongoDB tests are skipped with a message and the rest still run.
+
+The tests build a stub client in code from the core VLA in `@indra.ai/deva/package.json` and the VLA in this package's `package.json`, so no client file is needed. They cover:
+
+- log builds as a Deva and waits offline before init
+- log data has no placeholders left
+- log comes online and walks to ready
+- log agent matches the package
+- log utils answer with trimmed text
+- log help pages name the Deva and carry the package license
+- the log feature method signs the packet
+- log_write saves a packet to the test database (MongoDB)
+- log_write without a database returns false
+- a question is written to the question collection (MongoDB)
+- a devacore:answer event is written to the answer collection (MongoDB)
+- a devacore:ask event is written to the ask collection (MongoDB)
+- a devacore:error event is written to the error collection (MongoDB)
+- log stops through the full chain and closes the database
+- log refuses to start with a bad agent VLA
+- log refuses to start without its agent VLA
+
+The test for `log_write` without a database runs in a child process with a 15 second timeout, so a write that never returns fails that one test instead of holding up the rest.
+
+## Files
+
+| File | What it holds |
+| --- | --- |
+| `index.js` | The Log Deva. |
+| `package.json` | Package info, the package VLA, and the agent and vars data under `data`. |
+| `feature/methods.js` | A `log(packet)` feature method that signs the packet with `this.methods.sign('log', 'default', packet)`. |
+| `help/main.feecting` | The main help page and the license block. |
+| `help/corpus.feecting` | The help corpus. |
+| `index.test.js` | The tests. |
+| `assets/` | The emoji, avatar, background and main images. |
+| `LICENSE.md` | The license. |
 
 Thank you for choosing Log Deva for your logging and event tracking needs. If you have any further questions or need assistance, feel free to reach out.
 

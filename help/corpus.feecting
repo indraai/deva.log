@@ -8,7 +8,7 @@
 # {{profile.name}}
 
 describe: {{profile.describe}}
-hashags: {{profile.hashtags}}
+vector: {{profile.vector}}
 owner: {{profile.owner}}
 creator: {{profile.creator}}
 copyright: {{profile.copyright}}
