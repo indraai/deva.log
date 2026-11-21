@@ -201,19 +201,31 @@ test('a devacore:ask event is written to the ask collection', {skip: MONGO_SKIP}
 	assert.ok(doc, 'the ask document was written');
 });
 
-test('a devacore:error event is written to the error collection', {skip: MONGO_SKIP}, async () => {
-	const message = `log deva test ${TEST_ID}`;
-	await assert.rejects(
-		new Promise((resolve, reject) => LOG.err(new Error(message), {test: TEST_ID, kind: 'event'}, reject)),
-		{message},
-		'err rejects with the original error'
-	);
-	const doc = await findDoc('error', {'packet.test': TEST_ID, 'packet.kind': 'event'});
-	assert.ok(doc, 'the error document was written');
-	assert.equal(doc.key, 'error');
-	assert.equal(doc.value, 'log', 'the error came from Log Deva');
-	assert.equal(doc.error.message, message);
-	for (const t of TIERS) assert.equal(typeof doc[t], 'string', `${t} hash on the error document`);
+// a fresh Log Deva pointed at a server that refuses connections, so its one insert fails fast.
+// Log Deva leaves errors to Error Deva, so the failure should be reported once and never loop.
+test('a failed insert is reported once and log_write answers false', async () => {
+	const {default: FAIL} = await import('./index.js?insert');
+	const failClient = client();
+	failClient.features.log.global.mongo.uri = 'mongodb://127.0.0.1:1/?serverSelectionTimeoutMS=300';
+	await FAIL.init(failClient);
+	assert.equal(FAIL.listeners['devacore:error'], undefined, 'Log Deva has no devacore:error listener');
+	const errors = [];
+	const unhandled = [];
+	const onUnhandled = err => unhandled.push(err);
+	process.on('unhandledRejection', onUnhandled);
+	FAIL.listen('devacore:error', packet => errors.push(packet));
+	try {
+		const result = await FAIL.func.log_write('question', {test: TEST_ID, kind: 'insert'});
+		await new Promise(r => setTimeout(r, 500)); // time for any repeat error or unhandled rejection to show
+		assert.equal(result, false, 'log_write answers false');
+		assert.equal(errors.length, 1, 'exactly one devacore:error');
+		assert.equal(errors[0].value, 'log', 'the error came from Log Deva');
+		assert.equal(errors[0].packet.kind, 'insert', 'the error carries the packet that failed');
+		assert.equal(unhandled.length, 0, 'no unhandled rejection');
+	} finally {
+		process.off('unhandledRejection', onUnhandled);
+		await FAIL.stop();
+	}
 });
 
 test('log stops through the full chain and closes the database', async () => {

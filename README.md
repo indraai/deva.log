@@ -78,7 +78,7 @@ console.log(data.id.uid);
 
 When the license checks pass, Log Deva walks start, enter, done and ready. In `onReady` it reads `this.log().global?.mongo`, builds a `MongoClient` in `this.modules.client` when `uri` is set, keeps `database` in `this.vars.database`, and prompts `🪵 Log Deva Ready > VLA:50322929256393520124`.
 
-Log Deva listens on its own event bus. When it is loaded as a child Deva, Deva Core gives it the parent's event bus, so it hears the questions, answers, asks and errors of every Deva on that bus.
+Log Deva listens on its own event bus. When it is loaded as a child Deva, Deva Core gives it the parent's event bus, so it hears the questions, answers and asks of every Deva on that bus.
 
 To shut it down:
 
@@ -101,18 +101,17 @@ A stopped Deva stays stopped. Calling `init()` again on it answers `⭕️ OFFLI
 
 ## What it logs
 
-Log Deva has four listeners. Each copies the packet it hears and hands it to `log_write`, which saves it to the collection of the same name.
+Log Deva has three listeners. Each copies the packet it hears and hands it to `log_write`, which saves it to the collection of the same name. Log Deva doesn't log errors. It leaves them to Error Deva.
 
 | Event | Collection | What is saved |
 | --- | --- | --- |
 | `devacore:question` | `question` | The question packet, with its `q` built and stamped, from every `question()` call. |
 | `devacore:answer` | `answer` | The packet with both `q` and the stamped `a`, from every answer. |
 | `devacore:ask` | `ask` | The answer that comes back when one Deva asks another with `#key method`. |
-| `devacore:error` | `error` | The error record Deva Core builds in `this.err()`: the error's name, message and stack, the agent, the client, the packet that failed, and the md5, sha256 and sha512 hashes. |
 
 The listeners don't wait on the insert, so a slow database never holds up a question or an answer.
 
-If there is no MongoDB client, `log_write` returns `false` without writing. If the insert fails, it logs the failure with `console.error` and returns `false`, so a failure in the log writer never starts a new error loop.
+If there is no MongoDB client, `log_write` returns `false` without writing. If the insert fails, it reports the failure through `this.err(e, packet, false)`, so Deva Core talks it once on `devacore:error` for Error Deva to record, and `log_write` returns `false`. Log Deva doesn't listen to `devacore:error`, so a failed insert never loops.
 
 When Log Deva itself errors, its `onError` prompts `💣 ERROR!`, logs the error to the console, and rejects with the original error.
 
@@ -123,7 +122,6 @@ When Log Deva itself errors, its `onError` prompts `💣 ERROR!`, logs the error
 | `devacore:question` | listener | Calls `this.func.log_write('question', packet)`. |
 | `devacore:answer` | listener | Calls `this.func.log_write('answer', packet)`. |
 | `devacore:ask` | listener | Calls `this.func.log_write('ask', packet)`. |
-| `devacore:error` | listener | Calls `this.func.log_write('error', packet)`. |
 | `log_write(type, packet)` | func | Inserts `packet` into the `type` collection of `this.vars.database`. Returns the insert result, or `false` with no client or on failure. |
 | `translate`, `parse`, `process` | utils | Each returns its input trimmed. |
 | `onReady` | lifecycle | Builds the MongoDB client from the log feature data and prompts the ready message. |
@@ -155,7 +153,7 @@ npm test
 MONGO_URI="mongodb://127.0.0.1:27018" npm test
 ```
 
-The tests always write to their own database, `deva_log_test`, and drop it when they finish. Only the server can change, so the cleanup never touches another database. If MongoDB can't be reached, the five MongoDB tests are skipped with a message and the rest still run.
+The tests always write to their own database, `deva_log_test`, and drop it when they finish. Only the server can change, so the cleanup never touches another database. If MongoDB can't be reached, the four MongoDB tests are skipped with a message and the rest still run.
 
 The tests build a stub client in code from the core VLA in `@indra.ai/deva/package.json` and the VLA in this package's `package.json`, so no client file is needed. They cover:
 
@@ -171,12 +169,12 @@ The tests build a stub client in code from the core VLA in `@indra.ai/deva/packa
 - a question is written to the question collection (MongoDB)
 - a devacore:answer event is written to the answer collection (MongoDB)
 - a devacore:ask event is written to the ask collection (MongoDB)
-- a devacore:error event is written to the error collection (MongoDB)
+- a failed insert is reported once and log_write answers false
 - log stops through the full chain and closes the database
 - log refuses to start with a bad agent VLA
 - log refuses to start without its agent VLA
 
-The test for `log_write` without a database runs in a child process with a 15 second timeout, so a write that never returns fails that one test instead of holding up the rest.
+The test for `log_write` without a database runs in a child process with a 15 second timeout, so a write that never returns fails that one test instead of holding up the rest. The failed insert test points a fresh Log Deva at a port that refuses connections, so it runs with or without MongoDB.
 
 ## Files
 

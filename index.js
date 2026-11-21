@@ -69,18 +69,17 @@ const LogDeva = new Deva({
         const database = this.modules.client.db(this.vars.database);
         const collection = database.collection(type);
         result = await collection.insertOne(packet);
-      } catch (e) {
-        return this.err(e, packet, false);
-      } finally {
         return result;
+      } catch (e) {
+        return this.err(e, packet, false).catch(() => result);
       }
     },
 
   },
   methods: {},
   onReady(data, resolve) {
-    const {uri,database} = this.log().global?.mongo || {};
     const {VLA} = this.info();
+    const {uri,database} = this.log().global?.mongo || {};
     if (uri) this.modules.client = new MongoClient(uri); // build the client if uri is set
     this.vars.database = database;
     this.prompt(`${this.vars.messages.ready} > VLA:${VLA.uid}`);
