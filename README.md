@@ -192,12 +192,12 @@ The tests build a stub client in code from the core VLA in `@indra.ai/deva/packa
 - a question is written to the question collection (MongoDB)
 - a devacore:answer event is written to the answer collection (MongoDB)
 - a devacore:ask event is written to the ask collection (MongoDB)
-- a failed insert is reported once and log_write answers false
+- a failed insert is handed to the stub Error Deva once and log_write answers false
 - log stops through the full chain and closes the database
 - log refuses to start with a bad agent VLA
 - log refuses to start without its agent VLA
 
-The test for `log_write` without a database runs in a child process with a 15 second timeout, so a write that never returns fails that one test instead of holding up the rest. The failed insert test points a fresh Log Deva at a port that refuses connections, so it runs with or without MongoDB.
+The test for `log_write` without a database runs in a child process with a 15 second timeout, so a write that never returns fails that one test instead of holding up the rest. The failed insert test loads a fresh Log Deva as the child of a stub Error Deva, so both share one event bus, and points it at a port that refuses connections, so it runs with or without MongoDB. The stub's `devacore:error` listener logs each error with `console.error` and keeps it for the test to check.
 
 ## Files
 
