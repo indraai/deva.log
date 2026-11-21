@@ -206,49 +206,49 @@ test('a devacore:ask event is written to the ask collection', {skip: MONGO_SKIP}
 // sets up its own, hears what Log Deva reports through this.err. Log Deva points at a server that refuses
 // connections, so its one insert fails fast with no MongoDB needed.
 test('a failed insert is handed to the stub Error Deva once and log_write answers false', async () => {
-  const {default: FAIL} = await import('./index.js?insert');
-  const caught = [];
-  const STUB_VLA = {uid: 'stub-error-deva'};
-  const STUB = new Deva({
-    info: {id: 'stub-error-deva', name: 'Stub Error Deva', VLA: STUB_VLA, dir: DIR},
-    agent: {
-      id: 'stub-error-deva',
-      key: 'error',
-      prompt: {emoji: '🧪', text: 'stub', colors: {label: {R: 2, G: 229, B: 77}, text: {R: 2, G: 229, B: 77}}},
-      profile: {name: 'Stub Error Deva'},
-    },
-    listeners: {
-      'devacore:error'(packet) {
-        console.error(`🧪 stub Error Deva caught ${packet.value}: ${packet.error.name} ${packet.error.message}`);
-        caught.push(packet);
-      },
-    },
-    devas: {log: FAIL},
-  });
-  const stubClient = client();
-  stubClient.features.license.devas.error = STUB_VLA;
-  stubClient.features.log.global.mongo.uri = 'mongodb://127.0.0.1:1/?serverSelectionTimeoutMS=300';
-  const unhandled = [];
-  const onUnhandled = err => unhandled.push(err);
-  process.on('unhandledRejection', onUnhandled);
-  try {
-    await STUB.init(stubClient);
-    assert.equal(FAIL.events, STUB.events, 'Log Deva shares the stub Error Deva event bus');
-    assert.equal(FAIL.listeners['devacore:error'], undefined, 'Log Deva has no devacore:error listener of its own');
-    const packet = {id: `${TEST_ID}-insert`, test: TEST_ID, kind: 'insert'};
-    const result = await FAIL.func.log_write('question', packet);
-    await new Promise(r => setTimeout(r, 500)); // time for any repeat error or unhandled rejection to show
-    assert.equal(result, false, 'log_write answers false');
-    assert.equal(caught.length, 1, 'the stub Error Deva caught exactly one error');
-    assert.equal(caught[0].value, 'log', 'the error came from Log Deva');
-    assert.equal(caught[0].agent.key, 'log', 'the error carries the Log Deva agent');
-    assert.equal(caught[0].packet.id, packet.id, 'the error carries the packet that failed');
-    for (const t of TIERS) assert.equal(typeof caught[0][t], 'string', `${t} hash on the error`);
-    assert.equal(unhandled.length, 0, 'no unhandled rejection');
-  } finally {
-    process.off('unhandledRejection', onUnhandled);
-    await STUB.stop(); // stops Log Deva first, then the stub
-  }
+	const {default: FAIL} = await import('./index.js?insert');
+	const caught = [];
+	const STUB_VLA = {uid: 'stub-error-deva'};
+	const STUB = new Deva({
+		info: {id: 'stub-error-deva', name: 'Stub Error Deva', VLA: STUB_VLA, dir: DIR},
+		agent: {
+			id: 'stub-error-deva',
+			key: 'error',
+			prompt: {emoji: '🧪', text: 'stub', colors: {label: {R: 2, G: 229, B: 77}, text: {R: 2, G: 229, B: 77}}},
+			profile: {name: 'Stub Error Deva'},
+		},
+		listeners: {
+			'devacore:error'(packet) {
+				console.error(`🧪 stub Error Deva caught ${packet.value}: ${packet.error.name} ${packet.error.message}`);
+				caught.push(packet);
+			},
+		},
+		devas: {log: FAIL},
+	});
+	const stubClient = client();
+	stubClient.features.license.devas.error = STUB_VLA;
+	stubClient.features.log.global.mongo.uri = 'mongodb://127.0.0.1:1/?serverSelectionTimeoutMS=300';
+	const unhandled = [];
+	const onUnhandled = err => unhandled.push(err);
+	process.on('unhandledRejection', onUnhandled);
+	try {
+		await STUB.init(stubClient);
+		assert.equal(FAIL.events, STUB.events, 'Log Deva shares the stub Error Deva event bus');
+		assert.equal(FAIL.listeners['devacore:error'], undefined, 'Log Deva has no devacore:error listener of its own');
+		const packet = {id: `${TEST_ID}-insert`, test: TEST_ID, kind: 'insert'};
+		const result = await FAIL.func.log_write('question', packet);
+		await new Promise(r => setTimeout(r, 500)); // time for any repeat error or unhandled rejection to show
+		assert.equal(result, false, 'log_write answers false');
+		assert.equal(caught.length, 1, 'the stub Error Deva caught exactly one error');
+		assert.equal(caught[0].value, 'log', 'the error came from Log Deva');
+		assert.equal(caught[0].agent.key, 'log', 'the error carries the Log Deva agent');
+		assert.equal(caught[0].packet.id, packet.id, 'the error carries the packet that failed');
+		for (const t of TIERS) assert.equal(typeof caught[0][t], 'string', `${t} hash on the error`);
+		assert.equal(unhandled.length, 0, 'no unhandled rejection');
+	} finally {
+		process.off('unhandledRejection', onUnhandled);
+		await STUB.stop(); // stops Log Deva first, then the stub
+	}
 });
 
 test('log stops through the full chain and closes the database', async () => {
