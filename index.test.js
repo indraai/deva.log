@@ -259,8 +259,8 @@ test('log stops through the full chain and closes the database', async () => {
 	assert.equal(data.value, 'log');
 	if (!MONGO_SKIP) assert.ok(closed, 'onStop closes the MongoClient');
 	const again = await LOG.init(client());
-  assert.equal(typeof again.ready, 'number', 'a stopped Deva starts again');
-  assert.equal((await LOG.stop()).key, 'shutdown', 'and stops again');
+	assert.equal(typeof again.ready, 'number', 'a stopped Deva starts again');
+	assert.equal((await LOG.stop()).key, 'shutdown', 'and stops again');
 });
 
 // each refusal check loads a fresh Log Deva instance from the same file, so it starts from a clean state.
