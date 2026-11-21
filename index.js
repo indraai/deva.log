@@ -46,14 +46,9 @@ const LogDeva = new Deva({
     // log the answer
     'devacore:answer'(packet) {
       this.func.log_write('answer', this.lib.copy(packet));
-    // log deva sking another deva
     },
     'devacore:ask'(packet) {
       this.func.log_write('ask', this.lib.copy(packet));
-    },
-    // log all errors
-    'devacore:error'(packet) {
-      this.func.log_write('error', this.lib.copy(packet));
     },
   },
   modules: {
@@ -68,8 +63,6 @@ const LogDeva = new Deva({
     the interactions to json log file.
     ***************/
     async log_write(type, packet) {
-      const created = Date.now();
-      const theDate = new Date(created);
       let result = false;
       if (!this.modules.client) return result; // no database configured
       try {
